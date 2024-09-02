@@ -4,7 +4,7 @@
 
 @layer components {
     .menu-item {
-      @apply flex pt-2 pr-8 pb-3 pl-0 w-full max-w-[272px] h-full max-h-[36px] gap-4 cursor-pointer hover:bg-[#f5faff];
+      @apply flex pt-2 pr-8 pb-3 pl-0 w-full max-w-[272px] h-full max-h-[36px] gap-4 cursor-pointer;
     }
     .menu-item p {
       @apply font-semibold text-sm text-right text-[#525252] dark:text-[#FFFFFF];
