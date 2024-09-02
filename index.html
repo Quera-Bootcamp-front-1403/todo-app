@@ -7,9 +7,19 @@
     <link href="./assets/styles/output.css" rel="stylesheet">
 </head>
 <body>
-    <header class="md:hidden relative top-4 shadow-[0px_4px_58.5px_0px_#0000000F] rounded-lg w-[360px] h-12 flex justify-center items-center mx-auto">
-        <img src="./assets/images/humbergermenu.svg" alt="" class="w-6 h-6 absolute right-4 cursor-pointer" id="humbergermenu">
-        <p class="font-bold text-base text-center text-[#141414]">کوئرا لیست</p>
+    <header class="md:hidden relative top-4 flex flex-col gap-5">
+        <div class="shadow-[0px_4px_58.5px_0px_#0000000F] rounded-lg w-[360px] h-12 flex justify-center items-center mx-auto">
+            <img src="./assets/images/humbergermenu.svg" alt="" class="w-6 h-6 absolute right-4 cursor-pointer" id="humbergermenu">
+            <p class="font-bold text-base text-center text-[#141414]">کوئرا لیست</p>
+        </div>
+        <div class="flex gap-3 w-[238px] h-14 pr-5">
+            <img src="./assets/images/roya-image.png" alt="">
+            <div class="flex flex-col">
+                <h1 class="text-[#242424] text-lg font-extrabold text-right dark:text-[#FFFFFF]">سلام رویا</h1>
+                <p class="text-[#7D7D7F] font-semibold text-sm text-right dark:text-[#848890]">سه‌شنبه، ۵ بهمن ۱۴۰۲</p>
+            </div>
+        </div>
+        <div class="border-b max-w-56 w-full border-[#F5F6F8] mx-auto"></div>
     </header>
     <aside id="sidebar" class="hidden bg-white w-full max-w-[272px] h-[984px] shadow-[0px_4px_58.5px_0px_#0000000F] fixed right-4 top-5 rounded-2xl md:flex flex-col justify-around dark:bg-[#091120] ">
         <div class="flex flex-col gap-3 relative top-11 items-center">
@@ -58,7 +68,7 @@
         </div>
         <footer class="mt-[200px] flex flex-col items-center gap-6">
             <div class="w-full max-w-[209px] h-full max-h-[42px] rounded-lg p-1 gap-1 bg-[#F7F7F7] flex dark:bg-[#0C1B31]">
-                <button class="flex items-center w-full max-w-[99px] h-full max-h-[34px] rounded-dark pt-[6px] pr-[16px] pb-[6px] pl-[20px] gap-3 bg-white dark:bg-[#0C1B31]">
+                <button class="flex items-center w-full max-w-[99px] h-full max-h-[34px] rounded-dark pt-[6px] pr-[16px] pb-[6px] pl-[20px] gap-3 bg-white dark:bg-[#0C1B31]" id="light-mode">
                     <img src="./assets/images/light-mode.svg" alt="" class="dark:hidden">
                     <img src="./assets/images/sun-darkmode.svg" alt="" class="dark:block hidden">
                     <p class="font-semibold text-sm text-[#808080] text-right dark:text-[#7A7A7A]">روشن</p>

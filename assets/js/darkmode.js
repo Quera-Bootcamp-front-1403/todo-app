@@ -4,3 +4,10 @@ btnDark.addEventListener("click", (e) => {
     e.preventDefault();
     document.documentElement.classList.toggle("dark");
 });
+
+const btnLight = document.getElementById("light-mode");
+
+btnLight.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.documentElement.classList.toggle("dark");
+});
