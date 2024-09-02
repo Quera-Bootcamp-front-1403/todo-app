@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .menu-item {
+      @apply flex pt-2 pr-8 pb-3 pl-0 w-full max-w-[272px] h-full max-h-[36px] gap-4 cursor-pointer hover:bg-[#f5faff];
+    }
+    .menu-item p {
+      @apply font-semibold text-sm text-right text-[#525252];
+    }
+  }
+
+  @layer components {
+    .mode-button-now {
+      @apply flex items-center w-full max-w-[99px] h-full max-h-[34px] rounded-md pt-[6px] pr-[16px] pb-[6px] pl-[20px] gap-3 bg-white;
+    }
+    .mode-button-now p {
+      @apply font-semibold text-sm text-[#808080] text-right;
+    }
+  }
+  
+  @layer components {
+    .mode-button-past {
+      @apply flex items-center w-full max-w-[99px] h-full max-h-[34px] rounded-md pt-[6px] pr-[16px] pb-[6px] pl-[20px] gap-3;
+    }
+    .mode-button-past p {
+      @apply font-semibold text-sm text-[#525252] text-right;
+    }
+  }
