@@ -2,14 +2,14 @@ const btnDark = document.getElementById("dark-mode");
 
 btnDark.addEventListener("click", (e) => {
     e.preventDefault();
-    document.documentElement.classList.toggle("dark");
+    document.documentElement.classList.add("dark");
 });
 
 const btnLight = document.getElementById("light-mode");
 
 btnLight.addEventListener("click", (e) => {
     e.preventDefault();
-    document.documentElement.classList.toggle("dark");
+    document.documentElement.classList.remove("dark");
 });
 
 const sidebar = document.getElementById("sidebar");
