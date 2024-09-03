@@ -2,9 +2,18 @@
 module.exports = {
   darkMode: 'class',
   content: ["index.html"],
+  darkMode: 'class',
   theme: {
     extend: {
+      borderRadius: {
+        "custom-10": "10px",
+      },
         colors: {
+          "#696969c": "#696969",
+          "#007BFFc": "#007BFF",
+          "#CCCCCCc": "#CCCCCC",
+          "#7D7D7Fc": "#7D7D7F",
+          "#AFAEB2c": "#AFAEB2",
             dark : {
                 "bg" : "#060C18",
                 "menu" : "#091120",
@@ -13,6 +22,14 @@ module.exports = {
                 "text-gray": "#7A7A7A",
                 "bg4" : "#002247",
                 "border" : "#2F3132",
+                "background-Dark": "#040810",
+                "#848890c": "#848890",
+                "#57A8FFc": "#57A8FF",
+                "#203E62c": "#203E62",
+                "#091120c": "#091120",
+                "#52555Bc": "#52555B",
+                "#AFAEB2c": "#AFAEB2",
+                "#7D7D7Fc": "#7D7D7F",
             }
         },
         textColor : {
@@ -56,6 +73,8 @@ module.exports = {
             "custom-99" : "99px",
             "custom-34" : "34px",
             "custom-6" : "6px",
+            "custom-38": "38px",
+          "custom-52": "52px",
         },
     },
   },
