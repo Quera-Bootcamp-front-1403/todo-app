@@ -1,14 +1,98 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl" class="dark">
-
+<html lang="fa" dir="rtl" class="">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="./assets/styles/output.css" rel="stylesheet">
 </head>
-
-<body class="dark:bg-dark-background-Dark">
+<body class="dark:bg-dark-bg">
+    <header class="md:hidden relative top-4 flex flex-col gap-5">
+        <div class="shadow-headmobile rounded-lg w-custom-328 h-12 flex justify-center items-center mx-auto dark:bg-dark-menu">
+            <img src="./assets/images/humbergermenu.svg" alt="" class="w-6 h-6 absolute right-6 cursor-pointer dark:hidden" id="humbergermenu-light">
+            <img src="./assets/images/humberger-dark.svg" alt="" class="hidden w-6 h-6 absolute right-6 cursor-pointer dark:block" id="humbergermenu-dark">
+            <p class="font-bold text-base text-center -text--primary-gray dark:text-white">کوئرا لیست</p>
+        </div>
+        <div class="flex gap-3 w-custom-238 h-14 pr-5">
+            <img src="./assets/images/roya-image.png" alt="">
+            <div class="flex flex-col">
+                <h1 class="-text--secondary-gray text-lg font-extrabold text-right dark:text-white">سلام رویا</h1>
+                <p class="-text--thirdry-gray  font-semibold text-sm text-right dark:-text--fourth-gray ">سه‌شنبه، ۵ بهمن ۱۴۰۲</p>
+            </div>
+        </div>
+        <div class="border-b max-w-custom-328 w-full -border--primary-white  mx-auto dark:hidden"></div>
+    </header>
+    <aside id="sidebar" class="hidden bg-white w-full max-w-custom-274 h-custom-800 md:max-w-custom-272 md:h-custom-984 shadow-headmobile fixed right-4 top-5 rounded-2xl md:flex flex-col justify-around dark:bg-dark-menu ">
+        <div class="flex flex-col gap-6 relative top-11 items-center">
+            <div class="md:flex md:gap-3 hidden">
+                <div> <img src="./assets/images/roya-image.png" alt=""></div>
+                <div class="flex flex-col">
+                    <h1 class="-text--secondary-gray text-lg font-extrabold text-right dark:text-white">سلام رویا</h1>
+                    <p class="-text--thirdry-gray font-semibold text-sm text-right dark:-text--fourth-gray">سه‌شنبه، ۵ بهمن ۱۴۰۲</p>
+                </div>
+            </div>
+            <div class="md:hidden flex justify-between items-baseline w-full max-w-custom-242 h-custom-48">
+                <h2 class="font-bold text-base text-right -text--secondary-gray dark:text-white">کوئرا لیست</h2>
+                <img src="./assets/images/close.svg" alt="" class="dark:hidden" id="close-light" >
+                <img src="./assets/images/close-dark.svg" alt="" class="hidden dark:block" id="close-dark">
+            </div>
+            <div class="flex pt-3 pr-5 pb-3 pl-0 rounded-lg w-full max-w-custom-242 md:max-w-custom-248 h-full max-h-custom-44 gap-4 -bg--primary-white2 cursor-pointer md:mt-custom-72 dark:bg-dark-bg2">
+                <img src="./assets/images/home-icon.svg" alt="" class="dark:hidden">
+                <img src="./assets/images/home-icon-darkmode.svg" alt="" class="dark:block hidden">
+                <p class="font-bold text-base text-right -text--primary-blue dark:text-white">خانه</p>
+            </div>
+            <div class="flex pt-2 pr-8 pb-3 pl-0 w-full max-w-custom-272 h-full max-h-custom-36 gap-4 cursor-pointer">
+                <img src="./assets/images/task-icon.svg" alt="" class="dark:hidden">
+                <img src="./assets/images/task-icon-darkmode.svg" alt="" class="dark:block hidden">
+                <p class="font-semibold text-sm text-right -text--secondary-gray2  dark:text-white">تسک‌ها</p>
+            </div>
+            <div class="flex pt-2 pr-8 pb-3 pl-0 w-full max-w-custom-272 h-full max-h-custom-36 gap-4 cursor-pointer">
+                <img src="./assets/images/calendar-icon.svg" alt="" class="dark:hidden">
+                <img src="./assets/images/calendar-icon-darkmode.svg" alt="" class="dark:block hidden">
+                <p class="font-semibold text-sm text-right -text--secondary-gray2 dark:text-white">تقویم</p>
+            </div>
+            <div class="flex pt-2 pr-8 pb-3 pl-0 w-full max-w-custom-272 h-full max-h-custom-36 gap-4 cursor-pointer">
+                <img src="./assets/images/reports-icon.svg" alt="" class="dark:hidden">
+                <img src="./assets/images/reports-icon-darkmode.svg" alt="" class="dark:block hidden">
+                <p class="font-semibold text-sm text-right -text--secondary-gray2 dark:text-white">گزارشات</p>
+            </div>
+            <div class="flex pt-2 pr-8 pb-3 pl-0 w-full max-w-custom-272 h-full max-h-custom-36 gap-4 cursor-pointer">
+                <img src="./assets/images/setting-icon.svg" alt="" class="dark:hidden">
+                <img src="./assets/images/setting-icon-darkmode.svg" alt="" class="dark:block hidden">
+                <p class="font-semibold text-sm text-right -text--secondary-gray2 dark:text-white">تنظیمات</p>
+            </div>
+            <div class="flex pt-2 pr-8 pb-3 pl-0 w-full max-w-custom-272 h-full max-h-custom-36 gap-4 cursor-pointer">
+                <img src="./assets/images/support-icon.svg" alt="" class="dark:hidden">
+                <img src="./assets/images/support-icon-darkmode.svg" alt="" class="dark:block hidden">
+                <p class="font-semibold text-sm text-right -text--secondary-gray2 dark:text-white">پشتیبانی</p>
+            </div>
+            <div class="flex pt-2 pr-8 pb-3 pl-0 w-full max-w-custom-272 h-full max-h-custom-36 gap-4 cursor-pointer">
+                <img src="./assets/images/profile-icon.svg" alt="" class="dark:hidden">
+                <img src="./assets/images/profile-icon-darkmode.svg" alt="" class="dark:block hidden">
+                <p class="font-semibold text-sm text-right -text--secondary-gray2 dark:text-white">پروفایل</p>
+            </div>
+        </div>
+        <footer class="md:mt-custom-200 flex flex-col items-center gap-6 mt-custom-150">
+            <div class="w-full max-w-custom-209 h-full max-h-custom-42 rounded-lg p-1 gap-1 bg-secondary-white flex dark:bg-dark-bg3">
+                <button class="flex items-center w-full max-w-custom-99 h-full max-h-custom-34 rounded-dark pt-custom-6 pr-4 pb-custom-6 pl-5 gap-3 bg-white dark:bg-dark-bg3" id="light-mode">
+                    <img src="./assets/images/light-mode.svg" alt="" class="dark:hidden">
+                    <img src="./assets/images/sun-darkmode.svg" alt="" class="dark:block hidden">
+                    <p class="font-semibold text-sm -text--fifth-gray text-right dark:text-dark-text-gray">روشن</p>
+                </button>
+                <button class="flex items-center w-full max-w-custom-99 h-full max-h-custom-34 rounded-dark pt-custom-6 pr-4 pb-custom-6 pl-5 gap-3 dark:rounded-dark dark:bg-dark-bg4" id="dark-mode">
+                    <img src="./assets/images/dark-mode.svg" alt="" class="dark:hidden">
+                    <img src="./assets/images/moon-darkmode.svg" alt="" class="dark:block hidden">
+                    <p class="font-semibold text-sm -text--secondary-gray2 text-right dark:text-white">تاریک</p>
+                </button>
+            </div>
+            <div class="border-b max-w-52 w-full -border--secondary-white dark:border-dark-border"></div>
+            <div class="flex pt-2 pr-8 pb-3 pl-0 w-full max-w-custom-272 h-full max-h-custom-36 gap-4 cursor-pointer">
+                <img src="./assets/images/logout1.svg" alt="" class="dark:hidden">
+                <img src="./assets/images/logout2.svg" alt="" class="dark:block hidden">
+                <p class="font-semibold text-sm text-right -text--secondary-gray2 dark:-text--sixth-white">خروج</p>
+            </div>
+        </footer>
+    </aside>
     <main>
         <div class="flex flex-col px-4 mb-custom-38 mt-8 md:mt-20 md:px-52 md:mb-custom-52">
             <div class="mb-4 md:mb-5">
@@ -34,6 +118,5 @@
             </div>
         </div>
     </main>
-</body>
-
+    <script src="./assets/js/darkmode.js"></script>
 </html>
