@@ -6,11 +6,12 @@
     <title>Document</title>
     <link href="./assets/styles/output.css" rel="stylesheet">
 </head>
-<body>
+<body class="dark:bg-[#060C18]">
     <header class="md:hidden relative top-4 flex flex-col gap-5">
-        <div class="shadow-[0px_4px_58.5px_0px_#0000000F] rounded-lg w-[360px] h-12 flex justify-center items-center mx-auto">
-            <img src="./assets/images/humbergermenu.svg" alt="" class="w-6 h-6 absolute right-4 cursor-pointer" id="humbergermenu">
-            <p class="font-bold text-base text-center text-[#141414]">کوئرا لیست</p>
+        <div class="shadow-[0px_4px_58.5px_0px_#0000000F] rounded-lg w-[328px] h-12 flex justify-center items-center mx-auto dark:bg-[#091120]">
+            <img src="./assets/images/humbergermenu.svg" alt="" class="w-6 h-6 absolute right-6 cursor-pointer dark:hidden" id="humbergermenu-light">
+            <img src="./assets/images/humberger-dark.svg" alt="" class="hidden w-6 h-6 absolute right-6 cursor-pointer dark:block" id="humbergermenu-dark">
+            <p class="font-bold text-base text-center text-[#141414] dark:text-white">کوئرا لیست</p>
         </div>
         <div class="flex gap-3 w-[238px] h-14 pr-5">
             <img src="./assets/images/roya-image.png" alt="">
@@ -19,18 +20,23 @@
                 <p class="text-[#7D7D7F] font-semibold text-sm text-right dark:text-[#848890]">سه‌شنبه، ۵ بهمن ۱۴۰۲</p>
             </div>
         </div>
-        <div class="border-b max-w-56 w-full border-[#F5F6F8] mx-auto"></div>
+        <div class="border-b max-w-[328px] w-full border-[#F5F6F8] mx-auto dark:hidden"></div>
     </header>
-    <aside id="sidebar" class="hidden bg-white w-full max-w-[272px] h-[984px] shadow-[0px_4px_58.5px_0px_#0000000F] fixed right-4 top-5 rounded-2xl md:flex flex-col justify-around dark:bg-[#091120] ">
-        <div class="flex flex-col gap-3 relative top-11 items-center">
-            <div class="flex gap-3 ">
+    <aside id="sidebar" class="hidden bg-white w-full max-w-[274px] h-[800px] md:max-w-[272px] md:h-[984px] shadow-[0px_4px_58.5px_0px_#0000000F] fixed right-4 top-5 rounded-2xl md:flex flex-col justify-around dark:bg-[#091120] ">
+        <div class="flex flex-col gap-6 relative top-11 items-center">
+            <div class="md:flex md:gap-3 hidden">
                 <div> <img src="./assets/images/roya-image.png" alt=""></div>
                 <div class="flex flex-col">
                     <h1 class="text-[#242424] text-lg font-extrabold text-right dark:text-[#FFFFFF]">سلام رویا</h1>
                     <p class="text-[#7D7D7F] font-semibold text-sm text-right dark:text-[#848890]">سه‌شنبه، ۵ بهمن ۱۴۰۲</p>
                 </div>
             </div>
-            <div class="flex pt-3 pr-5 pb-3 pl-0 rounded-lg w-full max-w-[248px] h-full max-h-[44px] gap-4 bg-[#F5FAFF] cursor-pointer mt-[72px] dark:bg-[#041933]">
+            <div class="md:hidden flex justify-between items-baseline w-full max-w-[242px] h-[48px] ">
+                <h2 class="font-bold text-base text-right text-[#242424] dark:text-white">کوئرا لیست</h2>
+                <img src="./assets/images/close.svg" alt="" class="dark:hidden" id="close-light" >
+                <img src="./assets/images/close-dark.svg" alt="" class="hidden dark:block" id="close-dark">
+            </div>
+            <div class="flex pt-3 pr-5 pb-3 pl-0 rounded-lg w-full max-w-[242px] md:max-w-[248px] h-full max-h-[44px] gap-4 bg-[#F5FAFF] cursor-pointer md:mt-[72px] dark:bg-[#041933]">
                 <img src="./assets/images/home-icon.svg" alt="" class="dark:hidden">
                 <img src="./assets/images/home-icon-darkmode.svg" alt="" class="dark:block hidden">
                 <p class="font-bold text-base text-right text-[#007BFF] dark:text-[#FFFFFF]">خانه</p>
@@ -66,7 +72,7 @@
                 <p class="font-semibold text-sm text-right text-[#525252] dark:text-[#FFFFFF]">پروفایل</p>
             </div>
         </div>
-        <footer class="mt-[200px] flex flex-col items-center gap-6">
+        <footer class="md:mt-[200px] flex flex-col items-center gap-6 mt-[150px]">
             <div class="w-full max-w-[209px] h-full max-h-[42px] rounded-lg p-1 gap-1 bg-[#F7F7F7] flex dark:bg-[#0C1B31]">
                 <button class="flex items-center w-full max-w-[99px] h-full max-h-[34px] rounded-dark pt-[6px] pr-[16px] pb-[6px] pl-[20px] gap-3 bg-white dark:bg-[#0C1B31]" id="light-mode">
                     <img src="./assets/images/light-mode.svg" alt="" class="dark:hidden">
