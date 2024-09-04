@@ -21,4 +21,37 @@
     .li div div .tick {
         @apply w-custom-22 h-custom-26;
     }
+    .li-uncomplecet {
+      @apply w-full md:max-w-custom-744 max-w-custom-328 h-full max-h-custom-105 md:max-h-custom-105 rounded-xl border flex justify-between pt-3 md:pt-6 pr-4 md:pr-5 pb-3 md:pb-6 pl-4 md:pl-6 -border--secondary-white dark:border-dark-menu dark:bg-dark-menu shadow-li-undone;
+    }
+    .li-uncomplecet div {
+      @apply flex md:gap-3;
+    }
+    .li-uncomplecet div .first-div {
+      @apply flex;
+    }
+    .li-uncomplecet div .first-div .first-image {
+      @apply relative md:-right-5 w-1 md:h-custom-78 h-custom-76 md:bottom-3 -right-4;
+    }
+    .li-uncomplecet div .first-div .second-image {
+      @apply md:py-0.5 w-5 h-6 static md:relative md:-right-6;
+    }
+    .li-uncomplecet div .second-div {
+      @apply flex flex-col static md:gap-3 gap-1 mr-3 md:mr-0 md:relative md:-right-6;
+    }
+    .li-uncomplecet div .second-div div {
+      @apply flex flex-col md:flex-row gap-3;
+    }
+    .li-uncomplecet div .second-div div img {
+      @apply w-7 h-5 md:w-custom-31 md:h-custom-23;
+    }
+    .li-uncomplecet div .second-div div h1 {
+      @apply md:font-bold font-semibold md:text-base text-sm text-right -text--secondary-gray dark:text-white;
+    }
+    .li-uncomplecet div .second-div p {
+      @apply font-normal md:text-sm text-xs text-right md:-text--primary-grays -text--thirdry-gray dark:text-dark-#848890c;
+    }
+    .li-uncomplecet .more {
+      @apply md:static relative -top-8 ;
+    }
   }
