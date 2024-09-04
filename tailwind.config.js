@@ -2,11 +2,11 @@
 module.exports = {
   darkMode: 'class',
   content: ["index.html","Completedtasks.html"],
-  darkMode: 'class',
   theme: {
     extend: {
       borderRadius: {
         "custom-10": "10px",
+        "custom-4": "4px",
       },
         colors: {
           "#696969c": "#696969",
@@ -14,6 +14,16 @@ module.exports = {
           "#CCCCCCc": "#CCCCCC",
           "#7D7D7Fc": "#7D7D7F",
           "#AFAEB2c": "#AFAEB2",
+          "#E9E9E9c": "#E9E9E9",
+          "#FEFEFEc": "#FEFEFE",
+          "#EBEDEFc": "#EBEDEF",
+          "text-green": "#11A483",
+          "text-orange": "#FFAF37",
+          "#text-red": "#FF5F37",
+          "#FFE2DBc": "#FFE2DB",
+          "#FFEFD6c": "#FFEFD6",
+          "#C3FFF1c": "#C3FFF1",
+          "#F5F5F5c": "#F5F5F5",
             dark : {
                 "bg" : "#060C18",
                 "menu" : "#091120",
@@ -30,6 +40,18 @@ module.exports = {
                 "#52555Bc": "#52555B",
                 "#AFAEB2c": "#AFAEB2",
                 "#7D7D7Fc": "#7D7D7F",
+                "#E9E9E9c": "#E9E9E9",
+                "#3D3D3Dc": "#3D3D3D",
+                "#83878Fc": "#83878F",
+                "#293242c": "#293242",
+                "#0B192Dc": "#0B192D",
+                "#233332c": "#233332",
+                "#302F2Dc": "#302F2D",
+                "#3D2327c": "#3D2327",
+                "text-green": "#02E1A2",
+                "#002247c": "#002247",
+                "#0C1B31c": "#0C1B31",
+                "#293242c": "#293242",
             }
         },
         textColor : {
@@ -50,6 +72,8 @@ module.exports = {
           "headmobile" : "0px 4px 58.5px 0px #0000000F",
           "Li" : "0px 4px 4px 0px #00000040",
           "li-undone" : "0px 4px 58.5px 0px #0000000F",
+          "add-new-task": "0px 4px 58.5px 0px #0000000F",
+          "tags": "0px 12px 24px -6px #1414190F",
         },
         borderColor : {
           "--primary-white" : "#F5F6F8",
@@ -58,6 +82,10 @@ module.exports = {
         backgroundColor : {
           "--primary-white2" : "#F5FAFF",
           "secondary-white" :"#F7F7F7",
+        },
+        lineHeight: {
+          "custom-18": "18px",
+          "custom-21": "21px",
         },
         spacing : {
             "custom-328" : "328px",
@@ -96,6 +124,11 @@ module.exports = {
             "custom-31" : "31px",
             "custom-23" : "23px",
             "custom-76" : "76px",
+            "custom-19": "19px",
+            "custom-10": "10px",
+        },
+        width: {
+        "custom-214": "214px",
         },
     },
   },
