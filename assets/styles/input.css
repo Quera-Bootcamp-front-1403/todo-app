@@ -33,17 +33,14 @@
     .li-uncomplecet div .first-div .first-image {
       @apply relative md:-right-5 w-1 md:h-custom-78 h-custom-76 md:bottom-3 -right-4;
     }
-    .li-uncomplecet div .first-div .second-image {
-      @apply md:py-0.5 w-5 h-6 static md:relative md:-right-6;
+    .li-uncomplecet div .first-div input {
+      @apply relative md:-right-6 md:bottom-3 bottom-6;
     }
     .li-uncomplecet div .second-div {
       @apply flex flex-col static md:gap-3 gap-1 mr-3 md:mr-0 md:relative md:-right-6;
     }
     .li-uncomplecet div .second-div div {
       @apply flex flex-col md:flex-row gap-3;
-    }
-    .li-uncomplecet div .second-div div img {
-      @apply w-7 h-5 md:w-custom-31 md:h-custom-23;
     }
     .li-uncomplecet div .second-div div h1 {
       @apply md:font-bold font-semibold md:text-base text-sm text-right -text--secondary-gray dark:text-white;
@@ -53,5 +50,14 @@
     }
     .li-uncomplecet .more {
       @apply md:static relative -top-8 ;
+    }
+    .span-red {
+      @apply w-7 h-5 bg-#FFE2DBc rounded-custom-4 py-0.5 px-2 gap-2 font-semibold text-custom-10 md:text-xs text-#text-red md:w-custom-31 md:h-custom-23 dark:bg-dark-#3D2327c;
+    }
+    .span-yellow {
+      @apply md:w-custom-54 md:h-custom-23 rounded-custom-4 py-0.5 px-2 gap-2 bg-#FFEFD6c font-semibold md:text-xs text-text-orange dark:bg-dark-#302F2Dc w-custom-47 h-5 text-custom-10;
+    }
+    .span-green {
+      @apply w-custom-38 h-5 rounded-custom-4 py-0.5 px-2 gap-2 bg-#C3FFF1c font-bold text-custom-10 text-text-green md:w-custom-43 md:h-custom-23 md:text-xs;
     }
   }

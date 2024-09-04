@@ -126,9 +126,14 @@ module.exports = {
             "custom-76" : "76px",
             "custom-19": "19px",
             "custom-10": "10px",
+            "custom-54" : "54px",
+            "custom-43" : "43px",
         },
         width: {
         "custom-214": "214px",
+        },
+        fontSize : {
+          "custom-10" : "10px",
         },
     },
   },
