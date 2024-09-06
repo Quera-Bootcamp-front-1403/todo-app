@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl" class="">
+<html lang="fa" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
     <link href="./assets/styles/output.css" rel="stylesheet">
 </head>
 
-<body class="dark:bg-dark-bg">
+<body class="dark:bg-dark-bg font-YekanBakh">
     <header class="md:hidden relative top-4 flex flex-col gap-5">
         <div
             class="shadow-headmobile rounded-lg w-custom-328 h-12 flex justify-center items-center mx-auto dark:bg-dark-menu">
@@ -29,13 +29,15 @@
         <div class="border-b max-w-custom-328 w-full -border--primary-white  mx-auto dark:hidden"></div>
     </header>
     <aside id="sidebar"
-        class="hidden z-10 bg-white w-full max-w-custom-274 h-custom-800 md:max-w-custom-272 md:h-custom-984 shadow-headmobile fixed right-4 top-5 rounded-2xl flex-col justify-around dark:bg-dark-menu ">
-        <div class="flex flex-col gap-6 relative top-11 items-center">
+        class="hidden z-10 bg-white w-full max-w-custom-274 md:flex md:max-w-custom-272 md:max-h-screen shadow-headmobile fixed right-4 top-5 rounded-2xl flex-col overflow-y-auto dark:bg-dark-menu ">
+        <div class="flex flex-col gap-6 relative top-11 pb-6 items-center">
             <div class="md:flex md:gap-3 hidden">
                 <div> <img src="./assets/images/roya-image.png" alt=""></div>
                 <div class="flex flex-col">
-                    <h1 class="-text--secondary-gray text-lg font-extrabold text-right dark:text-white">سلام رویا</h1>
-                    <p class="-text--thirdry-gray font-semibold text-sm text-right dark:-text--fourth-gray">سه‌شنبه، ۵
+                    <h1 class="-text--secondary-gray text-lg font-extrabold text-right dark:text-white">سلام رویا
+                    </h1>
+                    <p class="-text--thirdry-gray font-semibold text-sm text-right dark:-text--fourth-gray">سه‌شنبه،
+                        ۵
                         بهمن ۱۴۰۲</p>
                 </div>
             </div>
@@ -81,7 +83,7 @@
                 <p class="font-semibold text-sm text-right -text--secondary-gray2 dark:text-white">پروفایل</p>
             </div>
         </div>
-        <footer class="md:mt-custom-200 flex flex-col items-center gap-6 mt-custom-150">
+        <footer class="md:mt-custom-48 flex flex-col items-center gap-6 mt-custom-150 pb-8">
             <div
                 class="w-full max-w-custom-209 h-full max-h-custom-42 rounded-lg p-1 gap-1 bg-secondary-white flex dark:bg-dark-bg3">
                 <button
@@ -107,223 +109,268 @@
             </div>
         </footer>
     </aside>
-    <main>
-        <div class="flex flex-col px-4 mb-custom-38 mt-8 md:mt-20 md:px-52 md:mb-custom-52 bg-#FEFEFEc dark:bg-dark-bg">
-            <div class="mb-4 md:mb-5">
-                <p class="font-extrabold text-base md:text-xl dark:text-white">تسک‌های امروز</p>
-                <p id="tasksCount" class="font-normal text-xs text-#696969c md:text-sm dark:text-dark-#848890c">تسکی
-                    برای امروز نداری!</p>
-            </div>
-            <div id="btnContainer"
-                class="flex gap-2 border border-dashed border-#CCCCCCc rounded-custom-10 dark:border-dark-#203E62c dark:bg-dark-#091120c">
-                <button id="addTaskBtn" class="flex py-4">
-                    <img src="./assets/images/add.svg" class="pr-4 dark:hidden" alt="add-new-task">
-                    <img src="./assets/images/add-dark.svg" class="hidden pr-4 dark:inline-block" alt="add-new-task">
-                    <span
-                        class="pr-1 text-#007BFFc font-semibold text-sm md:font-bold md:text-base dark:text-dark-#57A8FFc">افزودن
-                        وظیفه
-                        جدید</span>
-                </button>
-            </div>
-        </div>
-        <div id="emptyTask" class="flex flex-col items-center gap-5 px-10 md:px-80">
-            <img src="./assets/images/Artboard 1.png" alt="art-board">
-            <div>
-                <p
-                    class="font-extrabold text-base text-center text-#7D7D7Fc dark:text-dark-#7D7D7Fc md:dark:text-dark-#848890c">
-                    چه کارهایی امروز برای انجام داری؟</p>
-                <p
-                    class="font-semibold text-sm text-center text-#AFAEB2c dark:text-dark-#AFAEB2c md:dark:text-dark-#52555Bc">
-                    میتونی الان تسک‌هاتو اینجا بنویسی و برنامه
-                    ریزی رو شروع
-                    کنی!</p>
-            </div>
-        </div>
-        <div id="unfinishedTasks" class="mx-4 md:mx-52 flex flex-col gap-2 mt-4">
-            <div
-                class="flex justify-between items-center bg-white shadow-lg overflow-hidden relative border -border--secondary-white rounded-xl">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 bg-#text-red w-1 h-16 rounded-l-lg"></div>
-                    <div class="mr-4 absolute top-5">
-                        <label class="flex items-center space-x-2">
-                            <input type="checkbox"
-                                class="form-checkbox w-5 h-5 rounded-[5px] border-gray-300 focus:ring-0 focus:ring-offset-0 focus:outline-none">
-                        </label>
+    <div class="flex flex-row-reverse justify-center">
+        <div class="container mx-auto flex">
+            <main class="flex-1 max-w-custom-744 order-2">
+                <div class="flex flex-col px-4 mb-custom-38 mt-8 md:mt-20 md:mb-custom-52 bg-#FEFEFEc dark:bg-dark-bg">
+                    <div class="mb-4 md:mb-5">
+                        <p class="font-extrabold text-base md:text-xl dark:text-white">تسک‌های امروز</p>
+                        <p id="tasksCount" class="font-normal text-xs text-#696969c md:text-sm dark:text-dark-#848890c">
+                            تسکی
+                            برای امروز نداری!</p>
                     </div>
-                    <div class="py-4 mr-10 flex-grow">
-                        <div class="flex">
-                            <h1
-                                class="md:font-bold font-semibold md:text-base text-sm text-right -text--secondary-gray dark:text-white mb-2">
-                                جلسه با مدیران پروژه</h1>
-                            <div class="mr-3">
-                                <span id="high"
-                                    class="text-custom-10 font-semibold leading-4 py-custom-2 px-2 rounded-custom-4 text-#text-red bg-#FFE2DBc dark:bg-dark-#302F2Dc">
-                                    بالا
-                                </span>
+                    <div id="btnContainer"
+                        class="flex gap-2 border border-dashed border-#CCCCCCc rounded-custom-10 dark:border-dark-#203E62c dark:bg-dark-#091120c">
+                        <button id="addTaskBtn" class="flex py-4">
+                            <img src="./assets/images/add.svg" class="pr-4 dark:hidden" alt="add-new-task">
+                            <img src="./assets/images/add-dark.svg" class="hidden pr-4 dark:inline-block"
+                                alt="add-new-task">
+                            <span
+                                class="pr-1 text-#007BFFc font-semibold text-sm md:font-bold md:text-base dark:text-dark-#57A8FFc">افزودن
+                                وظیفه
+                                جدید</span>
+                        </button>
+                    </div>
+                </div>
+                <div id="emptyTask" class="flex flex-col items-center gap-5 px-10">
+                    <img src="./assets/images/Artboard 1.png" alt="art-board">
+                    <div>
+                        <p
+                            class="font-extrabold text-base text-center text-#7D7D7Fc dark:text-dark-#7D7D7Fc md:dark:text-dark-#848890c">
+                            چه کارهایی امروز برای انجام داری؟</p>
+                        <p
+                            class="font-semibold text-sm text-center text-#AFAEB2c dark:text-dark-#AFAEB2c md:dark:text-dark-#52555Bc">
+                            میتونی الان تسک‌هاتو اینجا بنویسی و برنامه
+                            ریزی رو شروع
+                            کنی!</p>
+                    </div>
+                </div>
+                <div id="unfinishedTasks" class="mx-4 flex flex-col gap-2 mt-4">
+                    <div
+                        class="flex justify-between items-center bg-white shadow-lg overflow-hidden relative border rounded-xl dark:bg-dark-#091120c dark:border-0">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-#text-red w-1 h-16 rounded-l-lg"></div>
+                            <div class="mr-4 absolute top-5">
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox"
+                                        class="form-checkbox bg-transparent w-5 h-5 rounded-[5px] border-gray-300 focus:ring-0 focus:ring-offset-0 focus:outline-none">
+                                </label>
+                            </div>
+                            <div class="py-4 mr-10 flex-grow">
+                                <div class="flex">
+                                    <h1
+                                        class="md:font-bold font-semibold md:text-base text-sm text-right -text--secondary-gray dark:text-white mb-2">
+                                        جلسه با مدیران پروژه</h1>
+                                    <div class="mr-3">
+                                        <span id="high"
+                                            class="text-custom-10 font-semibold leading-4 py-custom-2 px-2 rounded-custom-4 text-#text-red bg-#FFE2DBc dark:bg-dark-#302F2Dc">
+                                            بالا
+                                        </span>
+                                    </div>
+                                </div>
+                                <p
+                                    class="font-normal md:text-sm text-xs text-right md:-text--primary-grays -text--thirdry-gray dark:text-dark-#848890c">
+                                    جلسه با محسن یگانه و مریم جلالی</p>
                             </div>
                         </div>
-                        <p
-                            class="font-normal md:text-sm text-xs text-right md:-text--primary-grays -text--thirdry-gray dark:text-dark-#848890c">
-                            جلسه با محسن یگانه و مریم جلالی</p>
+                        <div>
+                            <img src="./assets/images/more.svg" alt="" class="dark:hidden block pl-6">
+                            <img src="./assets/images/more-dark.svg" alt="" class="hidden dark:block pl-6">
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <img src="./assets/images/more.svg" alt="" class="dark:hidden block pl-6">
-                    <img src="./assets/images/more-dark.svg" alt="" class="hidden dark:block pl-6">
-                </div>
-            </div>
-            <div
-                class="flex justify-between items-center bg-white shadow-lg border rounded-lg overflow-hidden relative">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 bg-text-orange w-1 h-16 rounded-l-lg"></div>
-                    <!-- Card Content -->
-                    <div class="mr-4 absolute top-5">
-                        <label class="flex items-center space-x-2">
-                            <input type="checkbox"
-                                class="form-checkbox w-5 h-5 rounded-[5px] border-gray-300 focus:ring-0 focus:ring-offset-0 focus:outline-none">
-                        </label>
-                    </div>
-                    <div class="py-4 mr-10 flex-grow">
-                        <div class="flex">
-                            <h1
-                                class="md:font-bold font-semibold md:text-base text-sm text-right -text--secondary-gray dark:text-white mb-2">
-                                جلسه با مدیران پروژه</h1>
-                            <div class="mr-3">
-                                <span id="mid"
-                                    class="text-custom-10 font-semibold leading-4 py-custom-2 px-2 rounded-custom-4 text-text-orange bg-#FFEFD6c dark:bg-dark-#302F2Dc">
-                                    متوسط
-                                </span>
+                    <div
+                        class="flex justify-between items-center bg-white shadow-lg border rounded-lg overflow-hidden relative dark:bg-dark-#091120c dark:border-0">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-text-orange w-1 h-16 rounded-l-lg"></div>
+
+                            <div class="mr-4 absolute top-5">
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox"
+                                        class="form-checkbox bg-transparent w-5 h-5 rounded-[5px] border-gray-300 focus:ring-0 focus:ring-offset-0 focus:outline-none">
+                                </label>
+                            </div>
+                            <div class="py-4 mr-10 flex-grow">
+                                <div class="flex">
+                                    <h1
+                                        class="md:font-bold font-semibold md:text-base text-sm text-right -text--secondary-gray dark:text-white mb-2">
+                                        جلسه با مدیران پروژه</h1>
+                                    <div class="mr-3">
+                                        <span id="mid"
+                                            class="text-custom-10 font-semibold leading-4 py-custom-2 px-2 rounded-custom-4 text-text-orange bg-#FFEFD6c dark:bg-dark-#302F2Dc">
+                                            متوسط
+                                        </span>
+                                    </div>
+                                </div>
+                                <p
+                                    class="font-normal md:text-sm text-xs text-right md:-text--primary-grays -text--thirdry-gray dark:text-dark-#848890c">
+                                    جلسه با محسن یگانه و مریم جلالی</p>
                             </div>
                         </div>
-                        <p
-                            class="font-normal md:text-sm text-xs text-right md:-text--primary-grays -text--thirdry-gray dark:text-dark-#848890c">
-                            جلسه با محسن یگانه و مریم جلالی</p>
+                        <div>
+                            <img src="./assets/images/more.svg" alt="" class="dark:hidden block pl-6">
+                            <img src="./assets/images/more-dark.svg" alt="" class="hidden dark:block pl-6">
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <img src="./assets/images/more.svg" alt="" class="dark:hidden block pl-6">
-                    <img src="./assets/images/more-dark.svg" alt="" class="hidden dark:block pl-6">
-                </div>
-            </div>
-        </div>
-        <div id="addTaskContainer"
-            class="mt-7 flex flex-col border border-dark-#E9E9E9c rounded-xl shadow-add-new-task mx-4 bg-white md:mx-52 dark:bg-dark-bg dark:border-dark-#3D3D3Dc">
-            <div class="pt-4">
-                <div class="px-4">
-                    <input type="text" placeholder="نام تسک" id="taskName"
-                        class="block w-full mb-2 placeholder-#7D7D7Fc text-sm font-semibold leading-custom-21 p-1 md:text-base focus:ring-0 focus:outline-none md:font-bold dark:text-white dark:bg-dark-bg">
-                    <textarea type="text" placeholder="توضیحات" id="taskDescription"
-                        class="block w-full placeholder-#AFAEB2c font-normal text-xs leading-custom-18 p-1 focus:ring-0 focus:outline-none md:text-sm md:font-semibold dark:text-dark-#83878Fc dark:bg-dark-bg"></textarea>
-                </div>
-                <div class="mt-6 pr-4">
-                    <button id="chosenTag"
-                        class="flex items-center gap-2 py-1 px-2 rounded-custom-4 bg-#FFE2DBc dark:bg-dark-#3D2327c">
-                        <img id="closeTag" src="./assets/images/close.svg" alt="tag-icon1" width="20px" height="20px"
-                            class="dark:hidden">
-                        <img id="closeTag" src="./assets/images/close-circle.svg" alt="tag-icon1" width="20px"
-                            height="20px" class="hidden dark:inline-block">
-                        <span class="text-xs text-#text-red leading-custom-18 font-semibold md:text-sm">بالا</span>
-                    </button>
-                </div>
-                <div class="mt-6 pr-4">
-                    <button id="tagsBtn"
-                        class="flex items-center gap-2 py-1 px-2 border rounded-custom-4 border-dark-#E9E9E9c dark:border-dark-#83878Fc">
-                        <img src="./assets/images/tag-right.svg" alt="tag-icon1" class="">
-                        <img src="./assets/images/tag-bottom.svg" alt="tag-icon2" class="disabled">
-                        <span
-                            class="text-xs text-#AFAEB2c leading-custom-18 font-semibold md:text-sm md:dark:text-white">تگ‌ها</span>
-                    </button>
-                </div>
-                <div id="tags"
-                    class="flex border border-#EBEDEFc rounded-lg shadow-tags mt-6 mr-4 py-custom-10 gap-4 pr-custom-10 w-custom-214 dark:bg-dark-#0B192Dc dark:border-dark-#293242c">
-                    <button id="low"
-                        class="text-xs font-bold leading-custom-18 py-1 px-2 rounded-custom-4 text-text-green bg-#C3FFF1c dark:bg-dark-#233332c dark:text-dark-text-green">
-                        پایین
-                    </button>
-                    <img src="./assets/images/Line.svg" alt="vertical-line" class="dark:border-dark-#293242c">
-                    <button id="mid"
-                        class="text-xs font-bold leading-custom-18 py-1 px-2 rounded-custom-4 text-text-orange bg-#FFEFD6c dark:bg-dark-#302F2Dc">
-                        متوسط
-                    </button>
-                    <img src="./assets/images/Line.svg" alt="vertical-line" class="dark:border-dark-#293242c">
-                    <button id="high"
-                        class="text-xs font-bold leading-custom-18 py-1 px-2 rounded-custom-4 text-#text-red bg-#FFE2DBc dark:bg-dark-#3D2327c">
-                        بالا
-                    </button>
-                </div>
-            </div>
-            <hr class="border border-#E9E9E9c mt-6 dark:border-dark-#3D3D3Dc">
-            <div class="pb-custom-19 flex flex-row-reverse pt-4 pl-4 items-center">
-                <div class="text-white text-xs font-semibold leading-custom-18 md:text-sm dark:opacity-50">
-                    <button id="createNewTaskBtn" disabled
-                        class="py-custom-6 px-4 bg-#007BFFc opacity-50 rounded-md dark:bg-dark-#002247c">اضافه
-                        کردن تسک</button>
-                </div>
-                <div class="pl-custom-6">
-                    <img id="close" src="./assets/images/close-task.svg" alt="close-task"
-                        class="rounded-md  md:hidden dark:hidden">
-                    <img id="close" src="./assets/images/close-circle.svg" alt="close-task"
-                        class=" p-custom-6 rounded-md bg-#F5F5F5c hidden dark:inline-block md:dark:hidden dark:bg-dark-#0C1B31c">
-                </div>
-            </div>
-            <div class="flex justify-between items-center bg-white shadow-lg rounded-lg overflow-hidden relative">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 bg-text-green w-1 h-16 rounded-l-lg"></div>
-                    <!-- Card Content -->
-                    <div class="mr-4 absolute top-5">
-                        <label class="flex items-center space-x-2">
-                            <input type="checkbox"
-                                class="form-checkbox w-5 h-5 rounded-[5px] border-gray-300 focus:ring-0 focus:ring-offset-0 focus:outline-none">
-                        </label>
+                <div id="addTaskContainer"
+                    class="mt-7 flex flex-col border border-dark-#E9E9E9c rounded-xl shadow-add-new-task mx-4 bg-white dark:bg-dark-bg dark:border-dark-#3D3D3Dc">
+                    <div class="pt-4">
+                        <div class="px-4">
+                            <input type="text" placeholder="نام تسک" id="taskName"
+                                class="block w-full mb-2 placeholder-#7D7D7Fc text-sm font-semibold leading-custom-21 p-1 md:text-base focus:ring-0 focus:outline-none md:font-bold dark:text-white dark:bg-dark-bg">
+                            <textarea type="text" placeholder="توضیحات" id="taskDescription"
+                                class="block w-full placeholder-#AFAEB2c font-normal text-xs leading-custom-18 p-1 focus:ring-0 focus:outline-none md:text-sm md:font-semibold dark:text-dark-#83878Fc dark:bg-dark-bg"></textarea>
+                        </div>
+                        <div class="mt-6 pr-4">
+                            <button id="chosenTag"
+                                class="flex items-center gap-2 py-1 px-2 rounded-custom-4 bg-#FFE2DBc dark:bg-dark-#3D2327c">
+                                <img id="closeTag" src="./assets/images/close.svg" alt="tag-icon1" width="20px"
+                                    height="20px" class="dark:hidden">
+                                <img id="closeTag" src="./assets/images/close-circle.svg" alt="tag-icon1" width="20px"
+                                    height="20px" class="hidden dark:inline-block">
+                                <span
+                                    class="text-xs text-#text-red leading-custom-18 font-semibold md:text-sm">بالا</span>
+                            </button>
+                        </div>
+                        <div class="mt-6 pr-4">
+                            <button id="tagsBtn"
+                                class="flex items-center gap-2 py-1 px-2 border rounded-custom-4 border-dark-#E9E9E9c dark:border-dark-#83878Fc">
+                                <img src="./assets/images/tag-right.svg" alt="tag-icon1" class="">
+                                <img src="./assets/images/tag-bottom.svg" alt="tag-icon2" class="disabled">
+                                <span
+                                    class="text-xs text-#AFAEB2c leading-custom-18 font-semibold md:text-sm md:dark:text-white">تگ‌ها</span>
+                            </button>
+                        </div>
+                        <div id="tags"
+                            class="flex border border-#EBEDEFc rounded-lg shadow-tags mt-6 mr-4 py-custom-10 gap-4 pr-custom-10 w-custom-214 dark:bg-dark-#0B192Dc dark:border-dark-#293242c">
+                            <button id="low"
+                                class="text-xs font-bold leading-custom-18 py-1 px-2 rounded-custom-4 text-text-green bg-#C3FFF1c dark:bg-dark-#233332c dark:text-dark-text-green">
+                                پایین
+                            </button>
+                            <img src="./assets/images/Line.svg" alt="vertical-line" class="dark:border-dark-#293242c">
+                            <button id="mid"
+                                class="text-xs font-bold leading-custom-18 py-1 px-2 rounded-custom-4 text-text-orange bg-#FFEFD6c dark:bg-dark-#302F2Dc">
+                                متوسط
+                            </button>
+                            <img src="./assets/images/Line.svg" alt="vertical-line" class="dark:border-dark-#293242c">
+                            <button id="high"
+                                class="text-xs font-bold leading-custom-18 py-1 px-2 rounded-custom-4 text-#text-red bg-#FFE2DBc dark:bg-dark-#3D2327c">
+                                بالا
+                            </button>
+                        </div>
                     </div>
-                    <div class="py-4 mr-10 flex-grow">
-                        <h1
-                            class="md:font-bold font-semibold md:text-base text-sm text-right -text--secondary-gray dark:text-white mb-2 line-through">
-                            جلسه با مدیران پروژه</h1>
+                    <hr class="border border-#E9E9E9c mt-6 dark:border-dark-#3D3D3Dc">
+                    <div class="pb-custom-19 flex flex-row-reverse pt-4 pl-4 items-center">
+                        <div class="text-white text-xs font-semibold leading-custom-18 md:text-sm dark:opacity-50">
+                            <button id="createNewTaskBtn" disabled
+                                class="py-custom-6 px-4 bg-#007BFFc opacity-50 rounded-md dark:bg-dark-#002247c">اضافه
+                                کردن تسک</button>
+                        </div>
+                        <div class="pl-custom-6">
+                            <img id="close" src="./assets/images/close-task.svg" alt="close-task"
+                                class="rounded-md  md:hidden dark:hidden">
+                            <img id="close" src="./assets/images/close-circle.svg" alt="close-task"
+                                class=" p-custom-6 rounded-md bg-#F5F5F5c hidden dark:inline-block md:dark:hidden dark:bg-dark-#0C1B31c">
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <img src="./assets/images/more.svg" alt="" class="dark:hidden block">
-                    <img src="./assets/images/more-dark.svg" alt="" class="hidden dark:block">
+                <div class="px-4 mt-8 bg-#FEFEFEc dark:bg-dark-bg">
+                    <div class="mb-4 md:mb-5">
+                        <p class="font-extrabold text-base md:text-xl dark:text-white">تسک‌های انجام شده</p>
+                        <p id="tasksCount" class="font-normal text-xs text-#696969c md:text-sm dark:text-dark-#848890c">
+                            3
+                            تسک انجام شده است.</p>
+                    </div>
                 </div>
-            </div>
+                <div id="finishedTasks" class="mx-4 flex flex-col gap-2 mt-4">
+                    <div
+                        class="flex justify-between items-center bg-white shadow-lg border rounded-lg overflow-hidden relative dark:bg-dark-#091120c dark:border-0">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-text-green w-1 h-custom-42 md:h-12 rounded-l-lg"></div>
+                            <div class="mr-4 absolute top-5">
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox"
+                                        class="form-checkbox bg-transparent w-5 h-5 rounded-[5px] border-gray-300 focus:ring-0 focus:ring-offset-0 focus:outline-none">
+                                </label>
+                            </div>
+                            <div class="py-4 mr-10 flex-grow">
+                                <div class="flex">
+                                    <h1
+                                        class="md:font-bold font-semibold md:text-base text-sm text-right line-through -text--secondary-gray dark:text-white mb-2">
+                                        جلسه با مدیران پروژه</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="./assets/images/more.svg" alt="" class="dark:hidden block pl-6">
+                            <img src="./assets/images/more-dark.svg" alt="" class="hidden dark:block pl-6">
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-between items-center bg-white shadow-lg border rounded-lg overflow-hidden relative dark:bg-dark-#091120c dark:border-0">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-text-green w-1 h-custom-42 md:h-12 rounded-l-lg"></div>
+                            <div class="mr-4 absolute top-5">
+                                <label class="flex items-center space-x-2">
+                                    <input type="checkbox"
+                                        class="form-checkbox bg-transparent w-5 h-5 rounded-[5px] border-gray-300 focus:ring-0 focus:ring-offset-0 focus:outline-none">
+                                </label>
+                            </div>
+                            <div class="py-4 mr-10 flex-grow">
+                                <div class="flex">
+                                    <h1
+                                        class="md:font-bold font-semibold md:text-base text-sm text-right line-through -text--secondary-gray dark:text-white mb-2">
+                                        جلسه با مدیران پروژه</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="./assets/images/more.svg" alt="" class="dark:hidden block pl-6">
+                            <img src="./assets/images/more-dark.svg" alt="" class="hidden dark:block pl-6">
+                        </div>
+                    </div>
+                </div>
+                <div id="editTaskContainer"
+                    class="mt-7 flex flex-col border border-dark-#E9E9E9c rounded-xl shadow-add-new-task mx-4 bg-white dark:bg-dark-bg dark:border-dark-#3D3D3Dc">
+                    <div class="pt-4">
+                        <div class="px-4">
+                            <input type="text" placeholder="نام تسک" id="taskName"
+                                class="block w-full mb-2 placeholder-#7D7D7Fc text-sm font-semibold leading-custom-21 p-1 md:text-base focus:ring-0 focus:outline-none md:font-bold dark:text-white dark:bg-dark-bg">
+                            <textarea type="text" placeholder="توضیحات" id="taskDescription" rows="1"
+                                class="block w-full placeholder-#AFAEB2c font-normal text-xs leading-custom-18 p-1 focus:ring-0 focus:outline-none md:text-sm md:font-semibold dark:text-dark-#83878Fc dark:bg-dark-bg"></textarea>
+                        </div>
+                        <div class="mt-6 pr-4">
+                            <button id="chosenTag"
+                                class="flex items-center gap-2 py-1 px-2 rounded-custom-4 bg-#FFE2DBc dark:bg-dark-#3D2327c">
+                                <img id="closeTag" src="./assets/images/close.svg" alt="tag-icon1" width="20px"
+                                    height="20px" class="dark:hidden">
+                                <img id="closeTag" src="./assets/images/close-circle.svg" alt="tag-icon1" width="20px"
+                                    height="20px" class="hidden dark:inline-block">
+                                <span
+                                    class="text-xs text-#text-red leading-custom-18 font-semibold md:text-sm">بالا</span>
+                            </button>
+                        </div>
+                    </div>
+                    <hr class="border border-#E9E9E9c mt-6 dark:border-dark-#3D3D3Dc">
+                    <div class="pb-custom-19 flex flex-row-reverse pt-4 pl-4 items-center">
+                        <div class="text-white text-xs font-semibold leading-custom-18 md:text-sm dark:opacity-50">
+                            <button id="createNewTaskBtn" disabled
+                                class="py-custom-6 px-4 bg-#007BFFc opacity-50 rounded-md dark:bg-dark-#002247c">ویرایش
+                                تسک</button>
+                        </div>
+                        <div class="pl-custom-6">
+                            <img id="close" src="./assets/images/close-task.svg" alt="close-task"
+                                class="rounded-md  md:hidden dark:hidden">
+                            <img id="close" src="./assets/images/close-circle.svg" alt="close-task"
+                                class=" p-custom-6 rounded-md bg-#F5F5F5c hidden dark:inline-block md:dark:hidden dark:bg-dark-#0C1B31c">
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <div class="hidden md:block w-1/3 min-w-custom-274"></div>
         </div>
-        <div id="editTaskContainer"
-            class="mt-7 flex flex-col border border-dark-#E9E9E9c rounded-xl shadow-add-new-task mx-4 bg-white md:mx-52 dark:bg-dark-bg dark:border-dark-#3D3D3Dc">
-            <div class="pt-4">
-                <div class="px-4">
-                    <input type="text" placeholder="نام تسک" id="taskName"
-                        class="block w-full mb-2 placeholder-#7D7D7Fc text-sm font-semibold leading-custom-21 p-1 md:text-base focus:ring-0 focus:outline-none md:font-bold dark:text-white dark:bg-dark-bg">
-                    <textarea type="text" placeholder="توضیحات" id="taskDescription" rows="1"
-                        class="block w-full placeholder-#AFAEB2c font-normal text-xs leading-custom-18 p-1 focus:ring-0 focus:outline-none md:text-sm md:font-semibold dark:text-dark-#83878Fc dark:bg-dark-bg"></textarea>
-                </div>
-                <div class="mt-6 pr-4">
-                    <button id="chosenTag"
-                        class="flex items-center gap-2 py-1 px-2 rounded-custom-4 bg-#FFE2DBc dark:bg-dark-#3D2327c">
-                        <img id="closeTag" src="./assets/images/close.svg" alt="tag-icon1" width="20px" height="20px"
-                            class="dark:hidden">
-                        <img id="closeTag" src="./assets/images/close-circle.svg" alt="tag-icon1" width="20px"
-                            height="20px" class="hidden dark:inline-block">
-                        <span class="text-xs text-#text-red leading-custom-18 font-semibold md:text-sm">بالا</span>
-                    </button>
-                </div>
-            </div>
-            <hr class="border border-#E9E9E9c mt-6 dark:border-dark-#3D3D3Dc">
-            <div class="pb-custom-19 flex flex-row-reverse pt-4 pl-4 items-center">
-                <div class="text-white text-xs font-semibold leading-custom-18 md:text-sm dark:opacity-50">
-                    <button id="createNewTaskBtn" disabled
-                        class="py-custom-6 px-4 bg-#007BFFc opacity-50 rounded-md dark:bg-dark-#002247c">ویرایش
-                        تسک</button>
-                </div>
-                <div class="pl-custom-6">
-                    <img id="close" src="./assets/images/close-task.svg" alt="close-task"
-                        class="rounded-md  md:hidden dark:hidden">
-                    <img id="close" src="./assets/images/close-circle.svg" alt="close-task"
-                        class=" p-custom-6 rounded-md bg-#F5F5F5c hidden dark:inline-block md:dark:hidden dark:bg-dark-#0C1B31c">
-                </div>
-            </div>
-        </div>
-    </main>
+
+    </div>
     <script src="./assets/js/darkmode.js"></script>
 
 </html>
