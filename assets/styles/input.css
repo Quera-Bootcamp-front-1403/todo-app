@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'YekanBach';
+  src: url('../fonts/Yekan\ Bakh\ Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
 @layer components {
     .li {
       @apply w-full md:max-w-custom-744 max-w-custom-328 h-full md:max-h-custom-74 max-h-custom-66 rounded-xl border flex justify-between md:pt-6 pt-3 md:pr-5 pr-4 md:pb-6 pb-3 md:pl-6 pl-4 shadow-Li dark:bg-dark-menu dark:border-dark-menu;

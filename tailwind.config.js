@@ -4,6 +4,9 @@ module.exports = {
   content: ["index.html", "edit.html", "Completedtasks.html"],
   theme: {
     extend: {
+      fontFamily: {
+        'YekanBakh': ['YekanBach', 'Yekan', 'sans-serif']
+      },
       borderRadius: {
         "custom-10": "10px",
         "custom-4": "4px",
@@ -130,7 +133,7 @@ module.exports = {
         "custom-10": "10px",
         "custom-54": "54px",
         "custom-43": "43px",
-        "custom-5" : "5px",
+        "custom-5": "5px",
       },
       width: {
         "custom-214": "214px",
