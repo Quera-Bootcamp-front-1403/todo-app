@@ -173,9 +173,14 @@
                                     جلسه با محسن یگانه و مریم جلالی</p>
                             </div>
                         </div>
-                        <div>
+                        <div class="relative">
                             <img src="./assets/images/more.svg" alt="" class="dark:hidden block pl-6">
                             <img src="./assets/images/more-dark.svg" alt="" class="hidden dark:block pl-6">
+                            <div class="flex absolute left-3 gap-custom-10 md:w-custom-78 md:h-custom-34 rounded-lg border p-custom-5 border-#EBEDEFc shadow-eidt-trash">
+                                <img src="./assets/images/trash-light.svg" alt="" class="md:w-6 md:h-6 cursor-pointer">
+                                <div class="flex-shrink-0 border bg-#EBEDEFc "></div>
+                                <img src="./assets/images/edit-light.svg" alt="" class="md:w-6 md:h-6 cursor-pointer">
+                            </div>
                         </div>
                     </div>
                     <div
@@ -212,7 +217,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="addTaskContainer"
+                <!-- <div id="addTaskContainer"
                     class="mt-7 flex flex-col border border-dark-#E9E9E9c rounded-xl shadow-add-new-task mx-4 bg-white dark:bg-dark-bg dark:border-dark-#3D3D3Dc">
                     <div class="pt-4">
                         <div class="px-4">
@@ -273,8 +278,8 @@
                                 class=" p-custom-6 rounded-md bg-#F5F5F5c hidden dark:inline-block md:dark:hidden dark:bg-dark-#0C1B31c">
                         </div>
                     </div>
-                </div>
-                <div class="px-4 mt-8 bg-#FEFEFEc dark:bg-dark-bg">
+                </div> -->
+                <div class="px-4 mt-8 bg-#FEFEFEc dark:bg-dark-bg" id="completed-title">
                     <div class="mb-4 md:mb-5">
                         <p class="font-extrabold text-base md:text-xl dark:text-white">تسک‌های انجام شده</p>
                         <p id="tasksCount" class="font-normal text-xs text-#696969c md:text-sm dark:text-dark-#848890c">
@@ -330,7 +335,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="editTaskContainer"
+                 <!-- <div id="editTaskContainer"
                     class="mt-7 flex flex-col border border-dark-#E9E9E9c rounded-xl shadow-add-new-task mx-4 bg-white dark:bg-dark-bg dark:border-dark-#3D3D3Dc">
                     <div class="pt-4">
                         <div class="px-4">
@@ -365,12 +370,13 @@
                                 class=" p-custom-6 rounded-md bg-#F5F5F5c hidden dark:inline-block md:dark:hidden dark:bg-dark-#0C1B31c">
                         </div>
                     </div>
-                </div>
+                </div> -->
             </main>
             <div class="hidden md:block w-1/3 min-w-custom-274"></div>
         </div>
 
     </div>
     <script src="./assets/js/darkmode.js"></script>
+    <script src="./assets/js/index.js"></script>
 
 </html>
