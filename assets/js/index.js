@@ -3,23 +3,24 @@ let completedTodos = [];
 
 const addTodo = () => {
     todos.push({
-        title:"",
-        discrip:"",
-        tag:"",
-        edit:true,           
+        title: "",
+        discrip: "",
+        tag: "",
+        edit: true,
+        finished: false,
     })
     renderTodos();
 };
 
-const updateTodo =(index) => {
+const updateTodo = (index) => {
     const title = document.getElementById(`taskName-${index}`).value;
     const discrip = document.getElementById(`taskDescription-${index}`).value;
     let tag;
-    if (!document.getElementById("chosenTag-high").classList.contains("hidden")){
+    if (!document.getElementById("chosenTag-high").classList.contains("hidden")) {
         tag = "بالا";
-    } else if (!document.getElementById("chosenTag-mid").classList.contains("hidden")){
+    } else if (!document.getElementById("chosenTag-mid").classList.contains("hidden")) {
         tag = "متوسط";
-    }else {
+    } else {
         tag = "پایین";
     }
     todos[index] = { title, discrip, tag, edit: false };
@@ -27,12 +28,11 @@ const updateTodo =(index) => {
         todos.splice(index, 1);
     }
     console.log(todos);
-    document.querySelector(".for-add").remove()
-  renderTodos();
+    closeForm();
 }
 
 
-document.getElementById("addTaskBtn").addEventListener("click",addTodo);
+document.getElementById("addTaskBtn").addEventListener("click", addTodo);
 
 const renderTodos = () => {
     const unfinishedTasks = document.getElementById("unfinishedTasks");
@@ -41,20 +41,20 @@ const renderTodos = () => {
     const emptyTask = document.getElementById("emptyTask");
     const btnadd = document.getElementById("btnContainer");
     const countTaskForDo = document.getElementById("tasksCount");
-    if(todos.length === 0){
+    if (todos.length === 0) {
         countTaskForDo.innerHTML = "تسکی برای امروز نداری!";
-    }else {
+    } else {
         countTaskForDo.innerHTML = `${todos.length} تسک را باید انجام دهید.`;
     }
     completedTodos.length === 0 ? completedTitle.classList.add("hidden") : completedTitle.classList.remove("hidden");
-    todos.length === 0 ? emptyTask.classList.remove("hidden") : emptyTask.classList.add("hidden"); 
+    todos.length === 0 ? emptyTask.classList.remove("hidden") : emptyTask.classList.add("hidden");
     unfinishedTasks.innerHTML = "";
     finishedTasks.innerHTML = "";
-    
-    if(todos.length === 0){
+
+    if (todos.length === 0) {
         btnadd.classList.remove("hidden");
     }
-    todos.forEach((todo,index) => {
+    todos.forEach((todo, index) => {
         const div = document.createElement("div");
         div.className = "for-add mt-7 flex flex-col border border-dark-#E9E9E9c rounded-xl shadow-add-new-task mx-4 bg-white dark:bg-dark-bg dark:border-dark-#3D3D3Dc";
         // div.setAttribute("id","addTaskContainer"); 
@@ -131,28 +131,30 @@ const renderTodos = () => {
                                 class="addTask py-custom-6 px-4 bg-#007BFFc opacity-50 rounded-md dark:bg-dark-#002247c">اضافه
                                 کردن تسک</button>
                         </div>
-                        <div class="pl-custom-6">
-                            <img id="close" src="./assets/images/close-task.svg" alt="close-task"
-                                class="rounded-md  md:hidden dark:hidden">
-                            <img id="close" src="./assets/images/close-circle.svg" alt="close-task"
-                                class=" p-custom-6 rounded-md bg-#F5F5F5c hidden dark:inline-block md:dark:hidden dark:bg-dark-#0C1B31c">
+                        <div id="close" class="pl-custom-6 cursor-pointer">
+                            <img src="./assets/images/close-task.svg" alt="close-task"
+                                class="rounded-md dark:hidden">
+                            <img src="./assets/images/close-circle.svg" alt="close-task"
+                                class=" p-custom-6 rounded-md bg-#F5F5F5c hidden dark:inline-block dark:bg-dark-#0C1B31c">
                         </div>
                     </div>
             `;
-            div.querySelector(".addTask").addEventListener("click",() => updateTodo(index));
-            div.querySelector("#tagsBtn").addEventListener("click",() => {
-                if (document.getElementById("first-tag-btn").classList.contains("hidden") && !document.getElementById("second-tag-btn").classList.contains("hidden")){
+            div.querySelector("#close").addEventListener("click", () => closeForm(index))
+            div.querySelector(`#taskName-${index}`).addEventListener("keyup", enableSaveBtn)
+            div.querySelector(".addTask").addEventListener("click", () => updateTodo(index));
+            div.querySelector("#tagsBtn").addEventListener("click", () => {
+                if (document.getElementById("first-tag-btn").classList.contains("hidden") && !document.getElementById("second-tag-btn").classList.contains("hidden")) {
                     document.getElementById("first-tag-btn").classList.remove("hidden");
                     document.getElementById("second-tag-btn").classList.add("hidden");
                     document.getElementById("tags").classList.add("hidden");
 
-                }else {
+                } else {
                     document.getElementById("first-tag-btn").classList.add("hidden");
                     document.getElementById("second-tag-btn").classList.remove("hidden");
                     document.getElementById("tags").classList.remove("hidden");
                 }
             })
-            div.querySelector("#low").addEventListener("click",() => {
+            div.querySelector("#low").addEventListener("click", () => {
                 document.getElementById("first-tag-btn").classList.remove("hidden");
                 document.getElementById("second-tag-btn").classList.add("hidden");
                 document.getElementById("tags").classList.add("hidden");
@@ -161,11 +163,11 @@ const renderTodos = () => {
                 document.getElementById("chosenTag-high").classList.add("hidden");
                 document.getElementById("chosenTag-mid").classList.add("hidden");
             })
-            div.querySelector("#chosenTag-low").addEventListener("click",() => {
+            div.querySelector("#chosenTag-low").addEventListener("click", () => {
                 document.getElementById("hight-low-mid-div").classList.add("hidden");
                 document.getElementById("chosenTag-low").classList.add("hidden");
             })
-            div.querySelector("#mid").addEventListener("click",() => {
+            div.querySelector("#mid").addEventListener("click", () => {
                 document.getElementById("first-tag-btn").classList.remove("hidden");
                 document.getElementById("second-tag-btn").classList.add("hidden");
                 document.getElementById("tags").classList.add("hidden");
@@ -174,11 +176,11 @@ const renderTodos = () => {
                 document.getElementById("chosenTag-high").classList.add("hidden");
                 document.getElementById("chosenTag-low").classList.add("hidden");
             })
-            div.querySelector("#chosenTag-mid").addEventListener("click",() => {
+            div.querySelector("#chosenTag-mid").addEventListener("click", () => {
                 document.getElementById("hight-low-mid-div").classList.add("hidden");
                 document.getElementById("chosenTag-mid").classList.add("hidden");
             })
-            div.querySelector("#high").addEventListener("click",() => {
+            div.querySelector("#high").addEventListener("click", () => {
                 document.getElementById("first-tag-btn").classList.remove("hidden");
                 document.getElementById("second-tag-btn").classList.add("hidden");
                 document.getElementById("tags").classList.add("hidden");
@@ -187,17 +189,17 @@ const renderTodos = () => {
                 document.getElementById("chosenTag-low").classList.add("hidden");
                 document.getElementById("chosenTag-mid").classList.add("hidden");
             })
-            div.querySelector("#chosenTag-high").addEventListener("click",() => {
+            div.querySelector("#chosenTag-high").addEventListener("click", () => {
                 document.getElementById("hight-low-mid-div").classList.add("hidden");
                 document.getElementById("chosenTag-high").classList.add("hidden");
             })
             unfinishedTasks.insertAdjacentElement("beforebegin", div);
-        }else {
-            div.className = "flex justify-between items-center bg-white shadow-lg overflow-hidden relative border rounded-xl dark:bg-dark-#091120c dark:border-0";
+        } else {
+            div.className = "flex justify-between bg-white shadow-lg overflow-hidden relative border rounded-xl dark:bg-dark-#091120c dark:border-0";
             div.innerHTML = "";
-            div.innerHTML =`
+            div.innerHTML = `
                         <div class="flex items-center">
-                            <div class="flex-shrink-0 ${todo.tag === "بالا" ? "bg-#text-red" : todo.tag === "متوسط" ? "bg-text-orange" : todo.tag ==="پایین"? "text-text-green" : "text-text-green"} w-1 h-16 rounded-l-lg"></div>
+                            <div class="flex-shrink-0 ${todo.tag === "بالا" ? "bg-#text-red" : todo.tag === "متوسط" ? "bg-text-orange" : todo.tag === "پایین" ? "bg-text-green" : "bg-text-green"} w-1 h-16 rounded-l-lg"></div>
                             <div class="mr-4 absolute top-5">
                                 <label class="flex items-center space-x-2">
                                     <input type="checkbox"
@@ -211,7 +213,7 @@ const renderTodos = () => {
                                         ${todo.title}</h1>
                                     <div class="mr-3">
                                         <span id=""
-                                            class="text-custom-10 font-semibold leading-4 py-custom-2 px-2 rounded-custom-4 ${todo.tag === "بالا" ? "text-#text-red" : todo.tag === "متوسط" ? "text-text-orange" : "text-text-green"} ${todo.tag === "بالا" ? "bg-#FFE2DBc" : todo.tag === "متوسط" ? "bg-#FFEFD6c" : "bg-#C3FFF1c"} dark:${todo.tag === "بالا" ? "bg-dark-#3D2327c" : todo.tag === "متوسط" ? "bg-dark-#302F2Dc" : "bg-dark-#233332c"} dark:${todo.tag === "پایین" ? "text-dark-text-green" :todo.tag === "متوسط" ? "text-text-orange" :"text-#text-red"}">
+                                            class="text-custom-10 font-semibold leading-4 py-custom-2 px-2 rounded-custom-4 ${todo.tag === "بالا" ? "text-#text-red" : todo.tag === "متوسط" ? "text-text-orange" : "text-text-green"} ${todo.tag === "بالا" ? "bg-#FFE2DBc" : todo.tag === "متوسط" ? "bg-#FFEFD6c" : "bg-#C3FFF1c"} dark:${todo.tag === "بالا" ? "bg-dark-#3D2327c" : todo.tag === "متوسط" ? "bg-dark-#302F2Dc" : "bg-dark-#233332c"} dark:${todo.tag === "پایین" ? "text-dark-text-green" : todo.tag === "متوسط" ? "text-text-orange" : "text-#text-red"}">
                                             ${todo.tag}
                                         </span>
                                     </div>
@@ -222,24 +224,44 @@ const renderTodos = () => {
                             </div>
                         </div>
                         <div class="relative">
-                            <img src="./assets/images/more.svg" alt="" class="more dark:hidden block pl-6 cursor-pointer">
-                            <img src="./assets/images/more-dark.svg" alt="" class="more hidden dark:block pl-6 cursor-pointer">
-                            <div class="edit-trash hidden flex absolute left-3 gap-custom-10 md:w-custom-78 md:h-custom-34 rounded-lg border p-custom-5 border-#EBEDEFc shadow-eidt-trash">
+                            <img src="./assets/images/more.svg" alt="" class="more dark:hidden block pl-6 cursor-pointer pt-4 md:pt-4">
+                            <img src="./assets/images/more-dark.svg" alt="" class="more hidden dark:block pl-6 cursor-pointer pt-4 md:pt-4">
+                            <div class="edit-trash hidden flex absolute left-12 gap-custom-10 md:w-custom-78 md:h-custom-34 rounded-lg md:border p-custom-5 md:bottom-1 md:left-5 border-#EBEDEFc shadow-eidt-trash">
                                 <img src="./assets/images/trash-light.svg" alt="" class="trash md:w-6 md:h-6 cursor-pointer">
                                 <div class="flex-shrink-0 border bg-#EBEDEFc "></div>
                                 <img src="./assets/images/edit-light.svg" alt="" class="md:w-6 md:h-6 cursor-pointer">
                             </div>
                         </div>
-            ` 
+            `
             btnadd.classList.remove("hidden");
             unfinishedTasks.appendChild(div);
-            div.querySelector(".more").addEventListener("click",() => {
+            div.querySelector(".more").addEventListener("click", () => {
                 div.querySelector(".edit-trash").classList.toggle("hidden");
             })
-            div.querySelector(".trash").addEventListener("click",() => {
+            div.querySelector(".trash").addEventListener("click", () => {
                 todos.splice(index, 1);
                 renderTodos();
             })
         }
     })
 };
+function enableSaveBtn() {
+    if (this.value !== "") {
+        document.querySelector('.addTask').classList.remove("opacity-50")
+    }
+    else {
+        document.querySelector('.addTask').classList.add("opacity-50")
+    }
+}
+function closeForm(index = -1) {
+    if (index > -1) {
+        if (todos[index].title === "") {
+            todos.splice(index, 1);
+        }
+        else {
+            todos[index].edit = false;
+        }
+    }
+    document.querySelector(".for-add").remove()
+    renderTodos();
+}
