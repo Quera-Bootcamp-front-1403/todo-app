@@ -74,6 +74,7 @@ module.exports = {
         "li-undone": "0px 4px 58.5px 0px #0000000F",
         "add-new-task": "0px 4px 58.5px 0px #0000000F",
         "tags": "0px 12px 24px -6px #1414190F",
+        "eidt-trash": "0px 12px 24px -6px #1414190F",
       },
       borderColor: {
         "--primary-white": "#F5F6F8",
@@ -129,6 +130,7 @@ module.exports = {
         "custom-10": "10px",
         "custom-54": "54px",
         "custom-43": "43px",
+        "custom-5" : "5px",
       },
       width: {
         "custom-214": "214px",

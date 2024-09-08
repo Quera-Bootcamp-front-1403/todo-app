@@ -40,6 +40,12 @@ const renderTodos = () => {
     const completedTitle = document.getElementById("completed-title");
     const emptyTask = document.getElementById("emptyTask");
     const btnadd = document.getElementById("btnContainer");
+    const countTaskForDo = document.getElementById("tasksCount");
+    if(todos.length === 0){
+        countTaskForDo.innerHTML = "تسکی برای امروز نداری!";
+    }else {
+        countTaskForDo.innerHTML = `${todos.length} تسک را باید انجام دهید.`;
+    }
     completedTodos.length === 0 ? completedTitle.classList.add("hidden") : completedTitle.classList.remove("hidden");
     todos.length === 0 ? emptyTask.classList.remove("hidden") : emptyTask.classList.add("hidden"); 
     unfinishedTasks.innerHTML = "";
@@ -215,13 +221,25 @@ const renderTodos = () => {
                                     ${todo.discrip}</p>
                             </div>
                         </div>
-                        <div>
-                            <img src="./assets/images/more.svg" alt="" class="dark:hidden block pl-6 cursor-pointer">
-                            <img src="./assets/images/more-dark.svg" alt="" class="hidden dark:block pl-6 cursor-pointer">
+                        <div class="relative">
+                            <img src="./assets/images/more.svg" alt="" class="more dark:hidden block pl-6 cursor-pointer">
+                            <img src="./assets/images/more-dark.svg" alt="" class="more hidden dark:block pl-6 cursor-pointer">
+                            <div class="edit-trash hidden flex absolute left-3 gap-custom-10 md:w-custom-78 md:h-custom-34 rounded-lg border p-custom-5 border-#EBEDEFc shadow-eidt-trash">
+                                <img src="./assets/images/trash-light.svg" alt="" class="trash md:w-6 md:h-6 cursor-pointer">
+                                <div class="flex-shrink-0 border bg-#EBEDEFc "></div>
+                                <img src="./assets/images/edit-light.svg" alt="" class="md:w-6 md:h-6 cursor-pointer">
+                            </div>
                         </div>
             ` 
             btnadd.classList.remove("hidden");
             unfinishedTasks.appendChild(div);
+            div.querySelector(".more").addEventListener("click",() => {
+                div.querySelector(".edit-trash").classList.toggle("hidden");
+            })
+            div.querySelector(".trash").addEventListener("click",() => {
+                todos.splice(index, 1);
+                renderTodos();
+            })
         }
     })
 };
