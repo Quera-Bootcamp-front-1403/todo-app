@@ -23,6 +23,11 @@ const updateTodo =(index) => {
         tag = "پایین";
     }
     todos[index] = { title, discrip, tag, edit: false };
+    if (todos[index].title === "") {
+        todos.splice(index, 1);
+    }
+    console.log(todos);
+    document.querySelector(".for-add").remove()
   renderTodos();
 }
 
@@ -40,14 +45,17 @@ const renderTodos = () => {
     unfinishedTasks.innerHTML = "";
     finishedTasks.innerHTML = "";
     
+    if(todos.length === 0){
+        btnadd.classList.remove("hidden");
+    }
     todos.forEach((todo,index) => {
         const div = document.createElement("div");
-        div.className = "mt-7 flex flex-col border border-dark-#E9E9E9c rounded-xl shadow-add-new-task mx-4 bg-white dark:bg-dark-bg dark:border-dark-#3D3D3Dc";
-        div.setAttribute("id","addTaskContainer"); 
+        div.className = "for-add mt-7 flex flex-col border border-dark-#E9E9E9c rounded-xl shadow-add-new-task mx-4 bg-white dark:bg-dark-bg dark:border-dark-#3D3D3Dc";
+        // div.setAttribute("id","addTaskContainer"); 
         btnadd.classList.add("hidden");
         if (todo.edit) {
             div.innerHTML = `
-            <div class="for-add pt-4">
+            <div class="pt-4">
                         <div class="px-4">
                             <input type="text" placeholder="نام تسک" id="taskName-${index}" value="${todo.title}"
                                 class="block w-full mb-2 placeholder-#7D7D7Fc text-sm font-semibold leading-custom-21 p-1 md:text-base focus:ring-0 focus:outline-none md:font-bold dark:text-white dark:bg-dark-bg">
@@ -144,6 +152,8 @@ const renderTodos = () => {
                 document.getElementById("tags").classList.add("hidden");
                 document.getElementById("hight-low-mid-div").classList.remove("hidden");
                 document.getElementById("chosenTag-low").classList.remove("hidden");
+                document.getElementById("chosenTag-high").classList.add("hidden");
+                document.getElementById("chosenTag-mid").classList.add("hidden");
             })
             div.querySelector("#chosenTag-low").addEventListener("click",() => {
                 document.getElementById("hight-low-mid-div").classList.add("hidden");
@@ -155,6 +165,8 @@ const renderTodos = () => {
                 document.getElementById("tags").classList.add("hidden");
                 document.getElementById("hight-low-mid-div").classList.remove("hidden");
                 document.getElementById("chosenTag-mid").classList.remove("hidden");
+                document.getElementById("chosenTag-high").classList.add("hidden");
+                document.getElementById("chosenTag-low").classList.add("hidden");
             })
             div.querySelector("#chosenTag-mid").addEventListener("click",() => {
                 document.getElementById("hight-low-mid-div").classList.add("hidden");
@@ -166,17 +178,20 @@ const renderTodos = () => {
                 document.getElementById("tags").classList.add("hidden");
                 document.getElementById("hight-low-mid-div").classList.remove("hidden");
                 document.getElementById("chosenTag-high").classList.remove("hidden");
+                document.getElementById("chosenTag-low").classList.add("hidden");
+                document.getElementById("chosenTag-mid").classList.add("hidden");
             })
             div.querySelector("#chosenTag-high").addEventListener("click",() => {
                 document.getElementById("hight-low-mid-div").classList.add("hidden");
                 document.getElementById("chosenTag-high").classList.add("hidden");
             })
+            unfinishedTasks.insertAdjacentElement("beforebegin", div);
         }else {
             div.className = "flex justify-between items-center bg-white shadow-lg overflow-hidden relative border rounded-xl dark:bg-dark-#091120c dark:border-0";
             div.innerHTML = "";
             div.innerHTML =`
                         <div class="flex items-center">
-                            <div class="flex-shrink-0 ${todo.tag === "بالا" ? "bg-#text-red" : todo.tag === "متوسط" ? "bg-text-orange" : "text-text-green"} w-1 h-16 rounded-l-lg"></div>
+                            <div class="flex-shrink-0 ${todo.tag === "بالا" ? "bg-#text-red" : todo.tag === "متوسط" ? "bg-text-orange" : todo.tag ==="پایین"? "text-text-green" : "text-text-green"} w-1 h-16 rounded-l-lg"></div>
                             <div class="mr-4 absolute top-5">
                                 <label class="flex items-center space-x-2">
                                     <input type="checkbox"
@@ -201,12 +216,12 @@ const renderTodos = () => {
                             </div>
                         </div>
                         <div>
-                            <img src="./assets/images/more.svg" alt="" class="dark:hidden block pl-6">
-                            <img src="./assets/images/more-dark.svg" alt="" class="hidden dark:block pl-6">
+                            <img src="./assets/images/more.svg" alt="" class="dark:hidden block pl-6 cursor-pointer">
+                            <img src="./assets/images/more-dark.svg" alt="" class="hidden dark:block pl-6 cursor-pointer">
                         </div>
             ` 
             btnadd.classList.remove("hidden");
+            unfinishedTasks.appendChild(div);
         }
-        unfinishedTasks.insertAdjacentElement("beforebegin", div);
     })
 };
