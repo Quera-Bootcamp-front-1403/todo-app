@@ -31,7 +31,10 @@ const updateTodo =(index) => {
   renderTodos();
 }
 
-
+const deletetodo = (index) => {
+    todos.splice(index, 1);
+    renderTodos();
+}
 document.getElementById("addTaskBtn").addEventListener("click",addTodo);
 
 const renderTodos = () => {
@@ -224,10 +227,12 @@ const renderTodos = () => {
                         <div class="relative">
                             <img src="./assets/images/more.svg" alt="" class="more dark:hidden block pl-6 cursor-pointer">
                             <img src="./assets/images/more-dark.svg" alt="" class="more hidden dark:block pl-6 cursor-pointer">
-                            <div class="edit-trash hidden flex absolute left-3 gap-custom-10 md:w-custom-78 md:h-custom-34 rounded-lg border p-custom-5 border-#EBEDEFc shadow-eidt-trash">
-                                <img src="./assets/images/trash-light.svg" alt="" class="trash md:w-6 md:h-6 cursor-pointer">
-                                <div class="flex-shrink-0 border bg-#EBEDEFc "></div>
-                                <img src="./assets/images/edit-light.svg" alt="" class="md:w-6 md:h-6 cursor-pointer">
+                            <div class="edit-trash hidden flex absolute left-3 gap-custom-10 md:w-custom-78 md:h-custom-34 rounded-lg border p-custom-5 border-#EBEDEFc dark:border-dark-#293242c shadow-eidt-trash dark:bg-dark-#0B192Dc">
+                                <img src="./assets/images/trash-light.svg" alt="" class="trash md:w-6 md:h-6 cursor-pointer dark:hidden">
+                                <img src="./assets/images/trash-dark.svg" alt="" class="trash md:w-6 md:h-6 cursor-pointer hidden dark:block">
+                                <div class="flex-shrink-0 border bg-#EBEDEFc dark:bg-dark-#293242c"></div>
+                                <img src="./assets/images/edit-light.svg" alt="" class="md:w-6 md:h-6 cursor-pointer dark:hidden">
+                                <img src="./assets/images/edit-dark.svg" alt="" class="md:w-6 md:h-6 cursor-pointer block dark:block">
                             </div>
                         </div>
             ` 
@@ -236,10 +241,7 @@ const renderTodos = () => {
             div.querySelector(".more").addEventListener("click",() => {
                 div.querySelector(".edit-trash").classList.toggle("hidden");
             })
-            div.querySelector(".trash").addEventListener("click",() => {
-                todos.splice(index, 1);
-                renderTodos();
-            })
+            div.querySelector(".trash").addEventListener("click",() => deletetodo(index))
         }
     })
 };
