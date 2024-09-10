@@ -674,10 +674,6 @@ video {
   background-color: currentColor;
 }
 
-.fixed {
-  position: fixed;
-}
-
 .absolute {
   position: absolute;
 }
@@ -1454,10 +1450,29 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-@font-face {
-  font-family: 'YekanBach';
+.scrollbar-thumb-rounded {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.7) rgba(229, 231, 235, 0.7);
+}
 
-  src: url('../fonts/Yekan\ Bakh\ Regular.ttf');
+.scrollbar-thumb-rounded::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar-thumb-rounded::-webkit-scrollbar-track {
+  background: rgba(229, 231, 235, 0.7);
+}
+
+.scrollbar-thumb-rounded::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.7);
+  border-radius: 9999px;
+  border: 3px solid rgba(229, 231, 235, 0.7);
+}
+
+@font-face {
+  font-family: "YekanBach";
+
+  src: url("../fonts/Yekan\ Bakh\ Regular.ttf");
 
   font-weight: 400;
 
@@ -1634,7 +1649,28 @@ video {
   opacity: 0.5;
 }
 
+.dark\:scrollbar-thumb-rounded-d:is(.dark *)::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dark\:scrollbar-thumb-rounded-d:is(.dark *) {
+  scrollbar-color: rgba(75, 85, 99, 0.7) rgba(31, 41, 55, 0.7);
+}
+
+.dark\:scrollbar-thumb-rounded-d:is(.dark *)::-webkit-scrollbar-track {
+  background: rgba(31, 41, 55, 0.7);
+}
+
+.dark\:scrollbar-thumb-rounded-d:is(.dark *)::-webkit-scrollbar-thumb {
+  background-color: rgba(75, 85, 99, 0.7);
+  border: 3px solid rgba(31, 41, 55, 0.7);
+}
+
 @media (min-width: 768px) {
+  .md\:fixed {
+    position: fixed;
+  }
+
   .md\:bottom-1 {
     bottom: 0.25rem;
   }

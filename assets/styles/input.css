@@ -3,68 +3,107 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'YekanBach';
-  src: url('../fonts/Yekan\ Bakh\ Regular.ttf');
+  font-family: "YekanBach";
+  src: url("../fonts/Yekan\ Bakh\ Regular.ttf");
   font-weight: 400;
   font-style: normal;
 }
 
-@layer components {
-    .li {
-      @apply w-full md:max-w-custom-744 max-w-custom-328 h-full md:max-h-custom-74 max-h-custom-66 rounded-xl border flex justify-between md:pt-6 pt-3 md:pr-5 pr-4 md:pb-6 pb-3 md:pl-6 pl-4 shadow-Li dark:bg-dark-menu dark:border-dark-menu;
-    }
-    .li div {
-      @apply flex  gap-4;
-    }
-    .li div div {
-        @apply my-auto relative -right-6 ;
-    }
-    .li div .markers {
-      @apply relative -right-4 md:-right-5 md:bottom-3 w-1 md:h-12 h-custom-42;
-    }
-    .li div div p {
-      @apply relative bottom-1 line-through md:text-base text-sm font-semibold md:font-medium -text--sixth-gray dark:text-white;
-    }
-    .li div div .tick {
-        @apply w-custom-22 h-custom-26;
-    }
-    .li-uncomplecet {
-      @apply w-full md:max-w-custom-744 max-w-custom-328 h-full max-h-custom-105 md:max-h-custom-105 rounded-xl border flex justify-between pt-3 md:pt-6 pr-4 md:pr-5 pb-3 md:pb-6 pl-4 md:pl-6 -border--secondary-white dark:border-dark-menu dark:bg-dark-menu shadow-li-undone;
-    }
-    .li-uncomplecet div {
-      @apply flex md:gap-3;
-    }
-    .li-uncomplecet div .first-div {
-      @apply flex;
-    }
-    .li-uncomplecet div .first-div .first-image {
-      @apply relative md:-right-5 w-1 md:h-custom-78 h-custom-76 md:bottom-3 -right-4;
-    }
-    .li-uncomplecet div .first-div input {
-      @apply relative md:-right-6 md:bottom-3 bottom-6;
-    }
-    .li-uncomplecet div .second-div {
-      @apply flex flex-col static md:gap-3 gap-1 mr-3 md:mr-0 md:relative md:-right-6;
-    }
-    .li-uncomplecet div .second-div div {
-      @apply flex flex-col md:flex-row gap-3;
-    }
-    .li-uncomplecet div .second-div div h1 {
-      @apply md:font-bold font-semibold md:text-base text-sm text-right -text--secondary-gray dark:text-white;
-    }
-    .li-uncomplecet div .second-div p {
-      @apply font-normal md:text-sm text-xs text-right md:-text--primary-grays -text--thirdry-gray dark:text-dark-#848890c;
-    }
-    .li-uncomplecet .more {
-      @apply md:static relative -top-8 ;
-    }
-    .span-red {
-      @apply w-7 h-5 bg-#FFE2DBc rounded-custom-4 py-0.5 px-2 gap-2 font-semibold text-custom-10 md:text-xs text-#text-red md:w-custom-31 md:h-custom-23 dark:bg-dark-#3D2327c;
-    }
-    .span-yellow {
-      @apply md:w-custom-54 md:h-custom-23 rounded-custom-4 py-0.5 px-2 gap-2 bg-#FFEFD6c font-semibold md:text-xs text-text-orange dark:bg-dark-#302F2Dc w-custom-47 h-5 text-custom-10;
-    }
-    .span-green {
-      @apply w-custom-38 h-5 rounded-custom-4 py-0.5 px-2 gap-2 bg-#C3FFF1c font-bold text-custom-10 text-text-green md:w-custom-43 md:h-custom-23 md:text-xs;
-    }
+@layer utilities {
+  .scrollbar-thumb-rounded {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(156, 163, 175, 0.7) rgba(229, 231, 235, 0.7);
   }
+
+  .scrollbar-thumb-rounded::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .scrollbar-thumb-rounded::-webkit-scrollbar-track {
+    background: rgba(229, 231, 235, 0.7);
+  }
+
+  .scrollbar-thumb-rounded::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 163, 175, 0.7);
+    border-radius: 9999px;
+    border: 3px solid rgba(229, 231, 235, 0.7);
+  }
+}
+@layer utilities {
+  .scrollbar-thumb-rounded-d::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .scrollbar-thumb-rounded-d {
+    scrollbar-color: rgba(75, 85, 99, 0.7) rgba(31, 41, 55, 0.7);
+  }
+
+  .scrollbar-thumb-rounded-d::-webkit-scrollbar-track {
+    background: rgba(31, 41, 55, 0.7);
+  }
+
+  .scrollbar-thumb-rounded-d::-webkit-scrollbar-thumb {
+    background-color: rgba(75, 85, 99, 0.7); 
+    border: 3px solid rgba(31, 41, 55, 0.7);
+  }
+}
+
+@layer components {
+  .li {
+    @apply w-full md:max-w-custom-744 max-w-custom-328 h-full md:max-h-custom-74 max-h-custom-66 rounded-xl border flex justify-between md:pt-6 pt-3 md:pr-5 pr-4 md:pb-6 pb-3 md:pl-6 pl-4 shadow-Li dark:bg-dark-menu dark:border-dark-menu;
+  }
+  .li div {
+    @apply flex  gap-4;
+  }
+  .li div div {
+    @apply my-auto relative -right-6;
+  }
+  .li div .markers {
+    @apply relative -right-4 md:-right-5 md:bottom-3 w-1 md:h-12 h-custom-42;
+  }
+  .li div div p {
+    @apply relative bottom-1 line-through md:text-base text-sm font-semibold md:font-medium -text--sixth-gray dark:text-white;
+  }
+  .li div div .tick {
+    @apply w-custom-22 h-custom-26;
+  }
+  .li-uncomplecet {
+    @apply w-full md:max-w-custom-744 max-w-custom-328 h-full max-h-custom-105 md:max-h-custom-105 rounded-xl border flex justify-between pt-3 md:pt-6 pr-4 md:pr-5 pb-3 md:pb-6 pl-4 md:pl-6 -border--secondary-white dark:border-dark-menu dark:bg-dark-menu shadow-li-undone;
+  }
+  .li-uncomplecet div {
+    @apply flex md:gap-3;
+  }
+  .li-uncomplecet div .first-div {
+    @apply flex;
+  }
+  .li-uncomplecet div .first-div .first-image {
+    @apply relative md:-right-5 w-1 md:h-custom-78 h-custom-76 md:bottom-3 -right-4;
+  }
+  .li-uncomplecet div .first-div input {
+    @apply relative md:-right-6 md:bottom-3 bottom-6;
+  }
+  .li-uncomplecet div .second-div {
+    @apply flex flex-col static md:gap-3 gap-1 mr-3 md:mr-0 md:relative md:-right-6;
+  }
+  .li-uncomplecet div .second-div div {
+    @apply flex flex-col md:flex-row gap-3;
+  }
+  .li-uncomplecet div .second-div div h1 {
+    @apply md:font-bold font-semibold md:text-base text-sm text-right -text--secondary-gray dark:text-white;
+  }
+  .li-uncomplecet div .second-div p {
+    @apply font-normal md:text-sm text-xs text-right md:-text--primary-grays -text--thirdry-gray dark:text-dark-#848890c;
+  }
+  .li-uncomplecet .more {
+    @apply md:static relative -top-8;
+  }
+  .span-red {
+    @apply w-7 h-5 bg-#FFE2DBc rounded-custom-4 py-0.5 px-2 gap-2 font-semibold text-custom-10 md:text-xs text-#text-red md:w-custom-31 md:h-custom-23 dark:bg-dark-#3D2327c;
+  }
+  .span-yellow {
+    @apply md:w-custom-54 md:h-custom-23 rounded-custom-4 py-0.5 px-2 gap-2 bg-#FFEFD6c font-semibold md:text-xs text-text-orange dark:bg-dark-#302F2Dc w-custom-47 h-5 text-custom-10;
+  }
+  .span-green {
+    @apply w-custom-38 h-5 rounded-custom-4 py-0.5 px-2 gap-2 bg-#C3FFF1c font-bold text-custom-10 text-text-green md:w-custom-43 md:h-custom-23 md:text-xs;
+  }
+}
