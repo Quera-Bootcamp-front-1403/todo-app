@@ -772,6 +772,10 @@ video {
   margin-top: 150px;
 }
 
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
 .block {
   display: block;
 }
@@ -830,6 +834,14 @@ video {
 
 .max-h-custom-44 {
   max-height: 44px;
+}
+
+.min-h-20 {
+  min-height: 5rem;
+}
+
+.min-h-2 {
+  min-height: 0.5rem;
 }
 
 .w-1 {
@@ -1183,6 +1195,16 @@ video {
   padding-bottom: 6px;
 }
 
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .pb-3 {
   padding-bottom: 0.75rem;
 }
@@ -1259,12 +1281,20 @@ video {
   padding-top: 6px;
 }
 
+.pt-40 {
+  padding-top: 10rem;
+}
+
 .text-center {
   text-align: center;
 }
 
 .text-right {
   text-align: right;
+}
+
+.align-middle {
+  vertical-align: middle;
 }
 
 .font-YekanBakh {

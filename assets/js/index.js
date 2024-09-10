@@ -41,19 +41,26 @@ const renderTodos = () => {
     const emptyTask = document.getElementById("emptyTask");
     const btnadd = document.getElementById("btnContainer");
     const countTaskForDo = document.getElementById("tasksCount");
+    const taskdoneCount = document.getElementById("taskdoneCount");
+
+    unfinishedTasks.innerHTML = "";
+    finishedTasks.innerHTML = "";
+
     if (todos.length === 0) {
         countTaskForDo.innerHTML = "تسکی برای امروز نداری!";
     } else {
         countTaskForDo.innerHTML = `${todos.length} تسک را باید انجام دهید.`;
     }
-    completedTodos.length === 0 ? completedTitle.classList.add("hidden") : completedTitle.classList.remove("hidden");
-    todos.length === 0 ? emptyTask.classList.remove("hidden") : emptyTask.classList.add("hidden");
-    unfinishedTasks.innerHTML = "";
-    finishedTasks.innerHTML = "";
 
-    if (todos.length === 0) {
-        btnadd.classList.remove("hidden");
+    if (completedTodos.length === 0) {
+        completedTitle.classList.add("hidden");
+    } else {
+        finishedTasks.classList.remove("hidden");
+        completedTitle.classList.remove("hidden");
+        taskdoneCount.innerHTML = `${completedTodos.length} تسک انجام شده است.`;
     }
+
+    todos.length === 0 && completedTodos.length === 0 ? emptyTask.classList.remove("hidden") : emptyTask.classList.add("hidden");
     todos.forEach((todo, index) => {
         const div = document.createElement("div");
         div.className = "for-add mt-7 flex flex-col border border-dark-#E9E9E9c rounded-xl shadow-add-new-task mx-4 bg-white dark:bg-dark-bg dark:border-dark-#3D3D3Dc";
@@ -195,7 +202,7 @@ const renderTodos = () => {
             })
             unfinishedTasks.insertAdjacentElement("beforebegin", div);
         } else {
-            div.className = "flex justify-between bg-white shadow-lg overflow-hidden relative border rounded-xl dark:bg-dark-#091120c dark:border-0";
+            div.className = "flex justify-between bg-white shadow-lg overflow-hidden mb-4 relative border rounded-xl dark:bg-dark-#091120c dark:border-0 min-h-20";
             div.innerHTML = "";
             div.innerHTML = `
                         <div class="flex items-center">
@@ -234,6 +241,7 @@ const renderTodos = () => {
                         </div>
             `
             btnadd.classList.remove("hidden");
+            div.querySelector(".form-checkbox").addEventListener("click", () => toggleTaskCompletion(index));
             unfinishedTasks.appendChild(div);
             div.querySelector(".more").addEventListener("click", () => {
                 div.querySelector(".edit-trash").classList.toggle("hidden");
@@ -243,7 +251,40 @@ const renderTodos = () => {
                 renderTodos();
             })
         }
-    })
+    });
+    completedTodos.forEach((todo, index) => {
+        const div = document.createElement("div");
+        div.className = "flex justify-between items-center bg-white shadow-lg border rounded-lg overflow-hidden relative dark:bg-dark-#091120c dark:border-0"
+        div.innerHTML = ` <div class="flex items-center">
+                                <div class="flex-shrink-0 bg-text-green w-1 h-custom-42 md:h-12 rounded-l-lg"></div>
+                                <div class="mr-4 absolute top-5">
+                                    <label class="flex items-center space-x-2">
+                                        <input type="checkbox"
+                                            class="form-checkbox bg-transparent w-5 h-5 rounded-[5px] border-gray-300 focus:ring-0 focus:ring-offset-0 focus:outline-none">
+                                    </label>
+                                </div>
+                                <div class="py-4 mr-10 flex-grow">
+                                    <div class="flex">
+                                        <h1
+                                            class="md:font-bold font-semibold md:text-base text-sm text-right line-through -text--secondary-gray dark:text-white mb-2">
+                                           ${todo.title}</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <img src="./assets/images/more.svg" alt="" class="dark:hidden block pl-6">
+                                <img src="./assets/images/more-dark.svg" alt="" class="hidden dark:block pl-6">
+                            </div>`;
+        div.querySelector(".form-checkbox").addEventListener("click", () => toggleTaskCompletion(index, true));
+        finishedTasks.appendChild(div);
+    });
+
+    if (todos.length === 0) {
+        btnadd.classList.remove("hidden");
+    } else {
+        btnadd.classList.add("hidden");
+    }
+
 };
 function enableSaveBtn() {
     if (this.value !== "") {
@@ -265,3 +306,16 @@ function closeForm(index = -1) {
     document.querySelector(".for-add").remove()
     renderTodos();
 }
+const toggleTaskCompletion = (index, finished = false) => {
+    if (finished) {
+        const completedTodo = completedTodos.splice(index, 1)[0];
+        completedTodo.finished = false;
+        todos.push(completedTodo);
+    } else {
+        const completedTodo = todos.splice(index, 1)[0];
+        completedTodo.finished = true;
+        completedTodos.push(completedTodo);
+    }
+    renderTodos();
+
+};
