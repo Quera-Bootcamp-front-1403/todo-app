@@ -42,15 +42,15 @@ const editTodo = (index) => {
     renderTodos();
 }
 
-// const createEdit = (index) => {
-//     const title = document.getElementById(`taskNames-${index}`).value;
-//     const discrip = document.getElementById(`taskDescriptions-${index}`).value;
-//     todos[index].title = title;
-//     todos[index].discrip = discrip;
-//     document.querySelector(".for-edit").remove();
-//     console.log("create edit");
-//     renderTodos();
-// }
+const createEdit = (index) => {
+    const title = document.getElementById(`taskNames-${index}`).value;
+    const discrip = document.getElementById(`taskDescriptions-${index}`).value;
+    todos[index].title = title;
+    todos[index].discrip = discrip;
+    document.querySelector(".for-edit").remove();
+    console.log("create edit");
+    renderTodos();
+}
 
 document.getElementById("addTaskBtn").addEventListener("click",addTodo);
 
@@ -245,13 +245,13 @@ const renderTodos = () => {
                         </div>
                         <div class="relative">
                             <img src="./assets/images/more.svg" alt="" class="more dark:hidden block pl-6 cursor-pointer">
-                            <img src="./assets/images/more-dark.svg" alt="" class="more hidden dark:block pl-6 cursor-pointer">
+                            <img src="./assets/images/more-dark.svg" alt="" class="more-dark hidden dark:block pl-6 cursor-pointer">
                             <div class="edit-trash hidden flex absolute left-3 gap-custom-10 md:w-custom-78 md:h-custom-34 rounded-lg border p-custom-5 border-#EBEDEFc dark:border-dark-#293242c shadow-eidt-trash dark:bg-dark-#0B192Dc">
                                 <img src="./assets/images/trash-light.svg" alt="" class="trash md:w-6 md:h-6 cursor-pointer dark:hidden">
-                                <img src="./assets/images/trash-dark.svg" alt="" class="trash md:w-6 md:h-6 cursor-pointer hidden dark:block">
+                                <img src="./assets/images/trash-dark.svg" alt="" class="trash-dark md:w-6 md:h-6 cursor-pointer hidden dark:block">
                                 <div class="flex-shrink-0 border bg-#EBEDEFc dark:bg-dark-#293242c"></div>
                                 <img src="./assets/images/edit-light.svg" alt="" class="edit md:w-6 md:h-6 cursor-pointer dark:hidden">
-                                <img src="./assets/images/edit-dark.svg" alt="" class="edit md:w-6 md:h-6 cursor-pointer block dark:block">
+                                <img src="./assets/images/edit-dark.svg" alt="" class="edit-dark md:w-6 md:h-6 cursor-pointer block dark:block">
                             </div>
                         </div>
             ` 
@@ -266,7 +266,7 @@ const renderTodos = () => {
                     </div>
                     <div class="mt-6 pr-4">
                         <button id="chosenTag"
-                            class="flex items-center gap-2 py-1 px-2 rounded-custom-4 ${todo.tag === "بالا" ? "bg-#FFE2DBc" : todo.tag === "متوسط" ? "bg-#FFEFD6c" : "bg-#C3FFF1c"} dark:bg-dark-#3D2327c">
+                            class="flex items-center gap-2 py-1 px-2 rounded-custom-4 ${todo.tag === "بالا" ? "bg-#FFE2DBc" : todo.tag === "متوسط" ? "bg-#FFEFD6c" : "bg-#C3FFF1c"} dark:${todo.tag === "بالا" ? "bg-dark-#3D2327c" : todo.tag === "متوسط" ? "bg-dark-#302F2Dc" : "bg-dark-#233332c"}">
                         <img id="closeTag" src="./assets/images/close.svg" alt="tag-icon1" width="20px" height="20px"
                             class="dark:hidden">
                         <img id="closeTag" src="./assets/images/close-circle.svg" alt="tag-icon1" width="20px" height="20px"
@@ -286,11 +286,14 @@ const renderTodos = () => {
                         <img id="close" src="./assets/images/close-task.svg" alt="close-task"
                             class="rounded-md  md:hidden dark:hidden">
                         <img id="close" src="./assets/images/close-circle.svg" alt="close-task"
-                            class=" p-custom-6 rounded-md bg-#F5F5F5c hidden dark:inline-block md:dark:hidden dark:bg-dark-#0C1B31c">
+                            class="p-custom-6 rounded-md bg-#F5F5F5c hidden dark:inline-block md:dark:hidden dark:bg-dark-#0C1B31c">
                     </div>
                 </div>
                 `
-                div.querySelector(".create-task") ? console.log("yes") : console.log("no");
+                // div*.querySelector("chosenTag") ? console.log("yes") : console.log("no");
+                divEdit.querySelector(".create-task") ? console.log("yes have") : console.log("no have");
+                divEdit.querySelector(".create-task").addEventListener("click", () => console.log("edit"));
+                console.log("edit")
             }
             btnadd.classList.remove("hidden");
             unfinishedTasks.appendChild(div);
@@ -298,10 +301,15 @@ const renderTodos = () => {
             div.querySelector(".more").addEventListener("click",() => {
                 div.querySelector(".edit-trash").classList.toggle("hidden");
             })
+            div.querySelector(".more-dark").addEventListener("click",() => {
+                div.querySelector(".edit-trash").classList.toggle("hidden");
+            })
             div.querySelector(".trash").addEventListener("click",() => deletetodo(index));
+            div.querySelector(".trash-dark").addEventListener("click",() => deletetodo(index));
             div.querySelector(".trash") ? console.log("trash-yes") : console.log("trash-no");
+            // divEdit.querySelector(".create-task") ? console.log("yes have") : console.log("no have");
             div.querySelector(".edit").addEventListener("click", () => editTodo(index));
-            // div.querySelector("#createNewTaskBtn").addEventListener("click",() => console.log("Create New Task"));
+            div.querySelector(".edit-dark").addEventListener("click", () => editTodo(index));
         }
     })
 };
