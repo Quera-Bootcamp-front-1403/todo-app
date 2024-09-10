@@ -27,7 +27,7 @@ const updateTodo = (index) => {
     if (todos[index].title === "") {
         todos.splice(index, 1);
     }
-    // console.log(todos);
+
     closeForm();
     renderTodos();
 }
@@ -40,13 +40,13 @@ const renderTodos = () => {
     const finishedTasks = document.getElementById("finishedTasks");
     const completedTitle = document.getElementById("completed-title");
     const emptyTask = document.getElementById("emptyTask");
-    const btnadd = document.getElementById("btnContainer");
+    const btnAdd = document.getElementById("btnContainer");
     const countTaskForDo = document.getElementById("tasksCount");
     const taskdoneCount = document.getElementById("taskdoneCount");
 
     unfinishedTasks.innerHTML = "";
     finishedTasks.innerHTML = "";
-    btnadd.classList.toggle("hidden", todos.length > 0)
+    btnAdd.classList.toggle("hidden", todos.length > 0)
 
     if (todos.length === 0) {
         countTaskForDo.innerHTML = "تسکی برای امروز نداری!";
@@ -63,18 +63,10 @@ const renderTodos = () => {
     }
 
     todos.length === 0 && completedTodos.length === 0 ? emptyTask.classList.remove("hidden") : emptyTask.classList.add("hidden");
-// let borderColor = {
-//     "بالا": "bg-text-green",
-//     "متوسط": "bg-text-orange",
-//     "پایین": "bg-#text-red",
-
-// }
 
     todos.forEach((todo, index) => {
         const div = document.createElement("div");
         div.className = "for-add mt-7 flex flex-col border border-dark-#E9E9E9c rounded-xl shadow-add-new-task mx-4 bg-white dark:bg-dark-bg dark:border-dark-#3D3D3Dc";
-        // div.setAttribute("id","addTaskContainer"); 
-        // btnadd.classList.add("hidden");
         if (todo.edit) {
             div.innerHTML = `
             <div class="pt-4">
@@ -211,7 +203,6 @@ const renderTodos = () => {
             })
             unfinishedTasks.insertAdjacentElement("beforebegin", div);
         } else {
-            // let taskBorderColor = borderColor[todo.tag] || "bg-text-green";
             div.className = "flex justify-between bg-white shadow-lg overflow-hidden mb-4 relative border rounded-xl dark:bg-dark-#091120c dark:border-0 min-h-20";
             div.innerHTML = "";
             div.innerHTML = `
@@ -250,7 +241,7 @@ const renderTodos = () => {
                             </div>
                         </div>
             `
-            btnadd.classList.remove("hidden");
+            btnAdd.classList.remove("hidden");
             div.querySelector(".form-checkbox").addEventListener("click", () => toggleTaskCompletion(index));
             unfinishedTasks.appendChild(div);
             div.querySelector(".more").addEventListener("click", () => {
@@ -264,34 +255,27 @@ const renderTodos = () => {
     });
     completedTodos.forEach((todo, index) => {
         const div = document.createElement("div");
-        // const borderColor = {
-        //     "بالا": "bg-text-green",
-        //     "متوسط": "bg-text-orange",
-        //     "پایین": "bg-#text-red"
-        // };
-        // let taskBorderColor = borderColor[todo.tag] 
         let bgColorClass;
-    switch (todo.tag) {
-        case "بالا":
-            bgColorClass = "bg-#text-red"; // Ensure this class exists
-            break;
-        case "متوسط":
-            bgColorClass = "bg-text-orange"; // Ensure this class exists
-            break;
-        case "پایین":
-            bgColorClass = "bg-text-green"; // Ensure this class exists
-            break;
-        default:
-            bgColorClass = "bg-text-green"; // Default fallback
-            break;
-    }
+        switch (todo.tag) {
+            case "بالا":
+                bgColorClass = "bg-#text-red";
+                break;
+            case "متوسط":
+                bgColorClass = "bg-text-orange";
+                break;
+            case "پایین":
+                bgColorClass = "bg-text-green";
+            default:
+                bgColorClass = "bg-text-green";
+                break;
+        }
 
         div.className = "flex justify-between items-center bg-white shadow-lg border rounded-lg overflow-hidden relative dark:bg-dark-#091120c dark:border-0"
         div.innerHTML = ` <div class="flex items-center">
                                 <div class="flex-shrink-0 ${bgColorClass} w-1 h-custom-42 md:h-12 rounded-l-lg"></div>
                                 <div class="mr-4 absolute top-5">
                                     <label class="flex items-center space-x-2">
-                                        <input type="checkbox"
+                                        <input type="checkbox" checked
                                             class="form-checkbox bg-transparent w-5 h-5 rounded-[5px] border-gray-300 focus:ring-0 focus:ring-offset-0 focus:outline-none">
                                     </label>
                                 </div>
@@ -310,13 +294,6 @@ const renderTodos = () => {
         div.querySelector(".form-checkbox").addEventListener("click", () => toggleTaskCompletion(index, true));
         finishedTasks.appendChild(div);
     });
-
-    if (todos.length === 0) {
-        btnadd.classList.remove("hidden");
-    } else {
-        btnadd.classList.add("hidden");
-    }
-
 };
 function enableSaveBtn() {
     if (this.value !== "") {
