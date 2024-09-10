@@ -77,7 +77,8 @@ const renderTodos = () => {
     todos.forEach((todo,index) => {
         const div = document.createElement("div");
         const divEdit = document.createElement("div");
-        divEdit.className = "mt-7 flex flex-col rounded-xl shadow-add-new-task mx-4 bg-white md:mx-52 dark:bg-dark-bg dark:border-dark-#3D3D3Dc";
+        divEdit.className = `mt-7 rounded-xl shadow-add-new-task bg-white ${todo.editTasks ? "border -border--secondary-white" : "border-none"} dark:bg-dark-bg dark:border-dark-#3D3D3Dc`;
+        // divEdit.className = "mt-7 flex flex-col rounded-xl shadow-add-new-task mx-4 bg-white md:mx-52 dark:bg-dark-bg dark:border-dark-#3D3D3Dc";
         div.className = "for-add mt-7 flex flex-col border border-dark-#E9E9E9c rounded-xl shadow-add-new-task mx-4 bg-white dark:bg-dark-bg dark:border-dark-#3D3D3Dc"; 
         btnadd.classList.add("hidden");
         if (todo.firstCreate) {
