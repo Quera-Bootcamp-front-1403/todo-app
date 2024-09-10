@@ -6,8 +6,8 @@ const addTodo = () => {
         title:"",
         discrip:"",
         tag:"",
-        edit:true,
-        edit2:false,           
+        firstCreate:true,
+        editTasks:false,           
     })
     renderTodos();
 };
@@ -23,7 +23,7 @@ const updateTodo =(index) => {
     }else {
         tag = "پایین";
     }
-    todos[index] = { title, discrip, tag, edit: false };
+    todos[index] = { title, discrip, tag, firstCreate: false };
     if (todos[index].title === "") {
         todos.splice(index, 1);
     }
@@ -38,7 +38,7 @@ const deletetodo = (index) => {
 }
 
 const editTodo = (index) => {
-    todos[index].edit2 = true;
+    todos[index].editTasks = true;
     renderTodos();
 }
 
@@ -47,8 +47,8 @@ const createEdit = (index) => {
     const discrip = document.getElementById(`taskDescriptions-${index}`).value;
     todos[index].title = title;
     todos[index].discrip = discrip;
+    todos[index].editTasks = false;
     document.querySelector(".for-edit").remove();
-    console.log("create edit");
     renderTodos();
 }
 
@@ -77,11 +77,10 @@ const renderTodos = () => {
     todos.forEach((todo,index) => {
         const div = document.createElement("div");
         const divEdit = document.createElement("div");
-        divEdit.className = "mt-7 flex flex-col border border-dark-#E9E9E9c rounded-xl shadow-add-new-task mx-4 bg-white md:mx-52 dark:bg-dark-bg dark:border-dark-#3D3D3Dc";
-        div.className = "for-add mt-7 flex flex-col border border-dark-#E9E9E9c rounded-xl shadow-add-new-task mx-4 bg-white dark:bg-dark-bg dark:border-dark-#3D3D3Dc";
-        // div.setAttribute("id","addTaskContainer"); 
+        divEdit.className = "mt-7 flex flex-col rounded-xl shadow-add-new-task mx-4 bg-white md:mx-52 dark:bg-dark-bg dark:border-dark-#3D3D3Dc";
+        div.className = "for-add mt-7 flex flex-col border border-dark-#E9E9E9c rounded-xl shadow-add-new-task mx-4 bg-white dark:bg-dark-bg dark:border-dark-#3D3D3Dc"; 
         btnadd.classList.add("hidden");
-        if (todo.edit) {
+        if (todo.firstCreate) {
             div.innerHTML = `
             <div class="pt-4">
                         <div class="px-4">
@@ -255,7 +254,7 @@ const renderTodos = () => {
                             </div>
                         </div>
             ` 
-            if(todo.edit2){
+            if(todo.editTasks){
                 divEdit.innerHTML += `
                 <div class="for-edit pt-4">
                     <div class="px-4">
@@ -278,7 +277,7 @@ const renderTodos = () => {
                 <hr class="border border-#E9E9E9c mt-6 dark:border-dark-#3D3D3Dc">
                 <div class="pb-custom-19 flex flex-row-reverse pt-4 pl-4 items-center">
                     <div class="text-white text-xs font-semibold leading-custom-18 md:text-sm dark:opacity-50">
-                        <button id="createNewTaskBtn" disabled
+                        <button id="createNewTaskBtn"
                             class="create-task py-custom-6 px-4 bg-#007BFFc rounded-md dark:bg-dark-#002247c cursor-pointer">ویرایش
                         تسک </button>
                     </div>
@@ -290,10 +289,7 @@ const renderTodos = () => {
                     </div>
                 </div>
                 `
-                // div*.querySelector("chosenTag") ? console.log("yes") : console.log("no");
-                divEdit.querySelector(".create-task") ? console.log("yes have") : console.log("no have");
-                divEdit.querySelector(".create-task").addEventListener("click", () => console.log("edit"));
-                console.log("edit")
+                divEdit.querySelector(".create-task").addEventListener("click", () => createEdit(index));
             }
             btnadd.classList.remove("hidden");
             unfinishedTasks.appendChild(div);
@@ -306,8 +302,6 @@ const renderTodos = () => {
             })
             div.querySelector(".trash").addEventListener("click",() => deletetodo(index));
             div.querySelector(".trash-dark").addEventListener("click",() => deletetodo(index));
-            div.querySelector(".trash") ? console.log("trash-yes") : console.log("trash-no");
-            // divEdit.querySelector(".create-task") ? console.log("yes have") : console.log("no have");
             div.querySelector(".edit").addEventListener("click", () => editTodo(index));
             div.querySelector(".edit-dark").addEventListener("click", () => editTodo(index));
         }
