@@ -23,12 +23,13 @@ const updateTodo = (index) => {
     } else {
         tag = "پایین";
     }
-    todos[index] = { title, discrip, tag, edit: false };
+    todos[index] = { title, discrip, tag, edit: false, finished: false };
     if (todos[index].title === "") {
         todos.splice(index, 1);
     }
-    console.log(todos);
+    // console.log(todos);
     closeForm();
+    renderTodos();
 }
 
 
@@ -45,6 +46,7 @@ const renderTodos = () => {
 
     unfinishedTasks.innerHTML = "";
     finishedTasks.innerHTML = "";
+    btnadd.classList.toggle("hidden", todos.length > 0)
 
     if (todos.length === 0) {
         countTaskForDo.innerHTML = "تسکی برای امروز نداری!";
@@ -61,11 +63,18 @@ const renderTodos = () => {
     }
 
     todos.length === 0 && completedTodos.length === 0 ? emptyTask.classList.remove("hidden") : emptyTask.classList.add("hidden");
+// let borderColor = {
+//     "بالا": "bg-text-green",
+//     "متوسط": "bg-text-orange",
+//     "پایین": "bg-#text-red",
+
+// }
+
     todos.forEach((todo, index) => {
         const div = document.createElement("div");
         div.className = "for-add mt-7 flex flex-col border border-dark-#E9E9E9c rounded-xl shadow-add-new-task mx-4 bg-white dark:bg-dark-bg dark:border-dark-#3D3D3Dc";
         // div.setAttribute("id","addTaskContainer"); 
-        btnadd.classList.add("hidden");
+        // btnadd.classList.add("hidden");
         if (todo.edit) {
             div.innerHTML = `
             <div class="pt-4">
@@ -202,6 +211,7 @@ const renderTodos = () => {
             })
             unfinishedTasks.insertAdjacentElement("beforebegin", div);
         } else {
+            // let taskBorderColor = borderColor[todo.tag] || "bg-text-green";
             div.className = "flex justify-between bg-white shadow-lg overflow-hidden mb-4 relative border rounded-xl dark:bg-dark-#091120c dark:border-0 min-h-20";
             div.innerHTML = "";
             div.innerHTML = `
@@ -254,9 +264,31 @@ const renderTodos = () => {
     });
     completedTodos.forEach((todo, index) => {
         const div = document.createElement("div");
+        // const borderColor = {
+        //     "بالا": "bg-text-green",
+        //     "متوسط": "bg-text-orange",
+        //     "پایین": "bg-#text-red"
+        // };
+        // let taskBorderColor = borderColor[todo.tag] 
+        let bgColorClass;
+    switch (todo.tag) {
+        case "بالا":
+            bgColorClass = "bg-#text-red"; // Ensure this class exists
+            break;
+        case "متوسط":
+            bgColorClass = "bg-text-orange"; // Ensure this class exists
+            break;
+        case "پایین":
+            bgColorClass = "bg-text-green"; // Ensure this class exists
+            break;
+        default:
+            bgColorClass = "bg-text-green"; // Default fallback
+            break;
+    }
+
         div.className = "flex justify-between items-center bg-white shadow-lg border rounded-lg overflow-hidden relative dark:bg-dark-#091120c dark:border-0"
         div.innerHTML = ` <div class="flex items-center">
-                                <div class="flex-shrink-0 bg-text-green w-1 h-custom-42 md:h-12 rounded-l-lg"></div>
+                                <div class="flex-shrink-0 ${bgColorClass} w-1 h-custom-42 md:h-12 rounded-l-lg"></div>
                                 <div class="mr-4 absolute top-5">
                                     <label class="flex items-center space-x-2">
                                         <input type="checkbox"
