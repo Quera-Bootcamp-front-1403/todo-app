@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
-  content: ["index.html", "edit.html", "Completedtasks.html"],
+  content: ["index.html", "./assets/js/index.js"],
   theme: {
     extend: {
       fontFamily: {
@@ -134,6 +134,8 @@ module.exports = {
         "custom-54": "54px",
         "custom-43": "43px",
         "custom-5": "5px",
+        "custom-744": "744px",
+        "custom-219": "219px",
       },
       width: {
         "custom-214": "214px",
