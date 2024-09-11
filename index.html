@@ -29,7 +29,7 @@
         <div class="border-b max-w-custom-328 w-full -border--primary-white  mx-auto dark:hidden"></div>
     </header>
     <aside id="sidebar"
-        class="hidden z-10 bg-white w-full max-w-custom-274 md:flex md:max-w-custom-272 md:max-h-screen shadow-headmobile fixed right-4 top-5 rounded-2xl flex-col overflow-y-auto dark:bg-dark-menu ">
+        class="hidden z-10 bg-white w-full max-w-custom-274 md:flex md:max-w-custom-272 md:max-h-screen shadow-headmobile absolute md:fixed right-4 top-5 rounded-2xl flex-col overflow-y-auto dark:bg-dark-menu scrollbar-thumb-rounded dark:scrollbar-thumb-rounded-d">
         <div class="flex flex-col gap-6 relative top-11 pb-6 items-center">
             <div class="md:flex md:gap-3 hidden">
                 <div> <img src="./assets/images/roya-image.png" alt=""></div>
@@ -112,7 +112,7 @@
     <div class="flex flex-row-reverse justify-center">
         <div class="container mx-auto flex">
             <main class="flex-1 max-w-custom-744 order-2">
-                <div class="flex flex-col px-4 mb-custom-38 mt-8 md:mt-20 md:mb-custom-52 bg-#FEFEFEc dark:bg-dark-bg">
+                <div class="flex flex-col px-4 mb-custom-38 mt-8 md:mt-20 bg-#FEFEFEc dark:bg-dark-bg">
                     <div class="mb-4 md:mb-5">
                         <p class="font-extrabold text-base md:text-xl dark:text-white">تسک‌های امروز</p>
                         <p id="tasksCount" class="font-normal text-xs text-#696969c md:text-sm dark:text-dark-#848890c">
@@ -146,7 +146,7 @@
                     </div>
                 </div>
                 <div id="unfinishedTasks" class="mx-4 flex flex-col gap-2 mt-4">
-                    <div
+                    <!-- <div
                         class="flex justify-between items-center bg-white shadow-lg overflow-hidden relative border rounded-xl dark:bg-dark-#091120c dark:border-0">
                         <div class="flex items-center">
                             <div class="flex-shrink-0 bg-#text-red w-1 h-16 rounded-l-lg"></div>
@@ -156,7 +156,7 @@
                                         class="form-checkbox bg-transparent w-5 h-5 rounded-[5px] border-gray-300 focus:ring-0 focus:ring-offset-0 focus:outline-none">
                                 </label>
                             </div>
-                            <div class="py-4 mr-10 flex-grow">
+                            <div class="py- mr-10 flex-grow">
                                 <div class="flex">
                                     <h1
                                         class="md:font-bold font-semibold md:text-base text-sm text-right -text--secondary-gray dark:text-white mb-2">
@@ -174,48 +174,16 @@
                             </div>
                         </div>
                         <div class="relative">
-                            <img src="./assets/images/more.svg" alt="" class="dark:hidden block pl-6">
-                            <img src="./assets/images/more-dark.svg" alt="" class="hidden dark:block pl-6">
-                            <div class="flex absolute left-3 gap-custom-10 md:w-custom-78 md:h-custom-34 rounded-lg border p-custom-5 border-#EBEDEFc shadow-eidt-trash">
+                            <img src="./assets/images/more.svg" alt="" class="dark:hidden block pl-6 pt-4">
+                            <img src="./assets/images/more-dark.svg" alt="" class="hidden dark:block pl-6 pt-4">
+                            <div
+                                class="flex absolute left-12 gap-custom-10 md:w-custom-78 md:h-custom-34 rounded-lg md:border p-custom-5 md:bottom-1 md:left-5 border-#EBEDEFc shadow-eidt-trash">
                                 <img src="./assets/images/trash-light.svg" alt="" class="md:w-6 md:h-6 cursor-pointer">
-                                <div class="flex-shrink-0 border bg-#EBEDEFc "></div>
+                                <div class="flex-shrink-0 border bg-#EBEDEFc"></div>
                                 <img src="./assets/images/edit-light.svg" alt="" class="md:w-6 md:h-6 cursor-pointer">
                             </div>
                         </div>
-                    </div>
-                    <div
-                        class="flex justify-between items-center bg-white shadow-lg border rounded-lg overflow-hidden relative dark:bg-dark-#091120c dark:border-0">
-                        <div class="flex items-center">
-                            <div class="flex-shrink-0 bg-text-orange w-1 h-16 rounded-l-lg"></div>
-
-                            <div class="mr-4 absolute top-5">
-                                <label class="flex items-center space-x-2">
-                                    <input type="checkbox"
-                                        class="form-checkbox bg-transparent w-5 h-5 rounded-[5px] border-gray-300 focus:ring-0 focus:ring-offset-0 focus:outline-none">
-                                </label>
-                            </div>
-                            <div class="py-4 mr-10 flex-grow">
-                                <div class="flex">
-                                    <h1
-                                        class="md:font-bold font-semibold md:text-base text-sm text-right -text--secondary-gray dark:text-white mb-2">
-                                        جلسه با مدیران پروژه</h1>
-                                    <div class="mr-3">
-                                        <span id="mid"
-                                            class="text-custom-10 font-semibold leading-4 py-custom-2 px-2 rounded-custom-4 text-text-orange bg-#FFEFD6c dark:bg-dark-#302F2Dc">
-                                            متوسط
-                                        </span>
-                                    </div>
-                                </div>
-                                <p
-                                    class="font-normal md:text-sm text-xs text-right md:-text--primary-grays -text--thirdry-gray dark:text-dark-#848890c">
-                                    جلسه با محسن یگانه و مریم جلالی</p>
-                            </div>
-                        </div>
-                        <div>
-                            <img src="./assets/images/more.svg" alt="" class="dark:hidden block pl-6">
-                            <img src="./assets/images/more-dark.svg" alt="" class="hidden dark:block pl-6">
-                        </div>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- <div id="addTaskContainer"
                     class="mt-7 flex flex-col border border-dark-#E9E9E9c rounded-xl shadow-add-new-task mx-4 bg-white dark:bg-dark-bg dark:border-dark-#3D3D3Dc">
@@ -279,16 +247,16 @@
                         </div>
                     </div>
                 </div> -->
-                <div class="px-4 mt-8 bg-#FEFEFEc dark:bg-dark-bg" id="completed-title">
-                    <div class="mb-4 md:mb-5">
-                        <p class="font-extrabold text-base md:text-xl dark:text-white">تسک‌های انجام شده</p>
-                        <p id="tasksCount" class="font-normal text-xs text-#696969c md:text-sm dark:text-dark-#848890c">
-                            3
-                            تسک انجام شده است.</p>
-                    </div>
+                <div class="hidden px-4 mt-8 mb-4 md:mb-5 bg-#FEFEFEc dark:bg-dark-bg" id="completed-title">
+                    <!-- <div class="mb-4 md:mb-5"> -->
+                    <p class="font-extrabold text-base md:text-xl dark:text-white">تسک‌های انجام شده</p>
+                    <p id="taskdoneCount" class="font-normal text-xs text-#696969c md:text-sm dark:text-dark-#848890c">
+                        3
+                        تسک انجام شده است.</p>
+                    <!-- </div> -->
                 </div>
                 <div id="finishedTasks" class="mx-4 flex flex-col gap-2 mt-4">
-                    <div
+                    <!-- <div
                         class="flex justify-between items-center bg-white shadow-lg border rounded-lg overflow-hidden relative dark:bg-dark-#091120c dark:border-0">
                         <div class="flex items-center">
                             <div class="flex-shrink-0 bg-text-green w-1 h-custom-42 md:h-12 rounded-l-lg"></div>
@@ -333,9 +301,9 @@
                             <img src="./assets/images/more.svg" alt="" class="dark:hidden block pl-6">
                             <img src="./assets/images/more-dark.svg" alt="" class="hidden dark:block pl-6">
                         </div>
-                    </div>
+                    </div> -->
                 </div>
-                 <!-- <div id="editTaskContainer"
+                <!-- <div id="editTaskContainer"
                     class="mt-7 flex flex-col border border-dark-#E9E9E9c rounded-xl shadow-add-new-task mx-4 bg-white dark:bg-dark-bg dark:border-dark-#3D3D3Dc">
                     <div class="pt-4">
                         <div class="px-4">
