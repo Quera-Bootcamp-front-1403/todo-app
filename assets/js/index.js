@@ -264,16 +264,62 @@ const renderTodos = () => {
                         <textarea type="text" placeholder="توضیحات" id="taskDescriptions-${index}" rows="1" value="${todo.discrip}"
                             class="block w-full placeholder-#AFAEB2c font-normal text-xs leading-custom-18 p-1 focus:ring-0 focus:outline-none md:text-sm md:font-semibold dark:text-dark-#83878Fc dark:bg-dark-bg"></textarea>
                     </div>
-                    <div class="mt-6 pr-4">
+                    <div class="edit-high mt-6 pr-4 ${todo.tag === "بالا" ? "block" : "hidden"}">
                         <button id="chosenTag"
-                            class="flex items-center gap-2 py-1 px-2 rounded-custom-4 ${todo.tag === "بالا" ? "bg-#FFE2DBc" : todo.tag === "متوسط" ? "bg-#FFEFD6c" : "bg-#C3FFF1c"} dark:${todo.tag === "بالا" ? "bg-dark-#3D2327c" : todo.tag === "متوسط" ? "bg-dark-#302F2Dc" : "bg-dark-#233332c"}">
+                            class="flex items-center gap-2 py-1 px-2 rounded-custom-4 bg-#FFE2DBc dark:bg-dark-#3D2327c">
                         <img id="closeTag" src="./assets/images/close.svg" alt="tag-icon1" width="20px" height="20px"
                             class="dark:hidden">
                         <img id="closeTag" src="./assets/images/close-circle.svg" alt="tag-icon1" width="20px" height="20px"
                             class="hidden dark:inline-block">
-                        <span class="text-xs ${todo.tag === "بالا" ? "text-#text-red" : todo.tag === "متوسط" ? "text-text-orange" : "text-text-green"} leading-custom-18 font-semibold md:text-sm">${todo.tag}</span>
+                        <span class="text-xs text-#text-red leading-custom-18 font-semibold md:text-sm">بالا</span>
                         </button>
                     </div>
+                    <div class="edit-mid mt-6 pr-4 ${todo.tag === "متوسط" ? "block" : "hidden"}">
+                        <button id="chosenTag"
+                            class="flex items-center gap-2 py-1 px-2 rounded-custom-4 bg-#FFEFD6c dark:bg-dark-#302F2Dc">
+                        <img id="closeTag" src="./assets/images/close.svg" alt="tag-icon1" width="20px" height="20px"
+                            class="dark:hidden">
+                        <img id="closeTag" src="./assets/images/close-circle.svg" alt="tag-icon1" width="20px" height="20px"
+                            class="hidden dark:inline-block">
+                        <span class="text-xs text-text-orange leading-custom-18 font-semibold md:text-sm">متوسط</span>
+                        </button>
+                    </div>
+                    <div class="edit-low mt-6 pr-4 ${todo.tag === "پایین" ? "block" : "hidden"}">
+                        <button id="chosenTag"
+                            class="flex items-center gap-2 py-1 px-2 rounded-custom-4 bg-#C3FFF1c dark:bg-dark-#233332c">
+                        <img id="closeTag" src="./assets/images/close.svg" alt="tag-icon1" width="20px" height="20px"
+                            class="dark:hidden">
+                        <img id="closeTag" src="./assets/images/close-circle.svg" alt="tag-icon1" width="20px" height="20px"
+                            class="hidden dark:inline-block">
+                        <span class="text-xs text-text-green leading-custom-18 font-semibold md:text-sm">پایین</span>
+                        </button>
+                    </div>
+                    <div class="mt-6 pr-4">
+                            <button id="tagsBtn"
+                                class="flex items-center gap-2 py-1 px-2 border rounded-custom-4 border-dark-#E9E9E9c dark:border-dark-#83878Fc">
+                                <img src="./assets/images/tag-right.svg" alt="tag-icon1" class="" id="first-tag-btn">
+                                <img src="./assets/images/tag-bottom.svg" alt="tag-icon2" class="disabled hidden" id="second-tag-btn">
+                                <span
+                                    class="text-xs text-#AFAEB2c leading-custom-18 font-semibold md:text-sm md:dark:text-white">تگ‌ها</span>
+                            </button>
+                        </div>
+                        <div id="tags"
+                            class="hidden flex border border-#EBEDEFc rounded-lg shadow-tags mt-6 mr-4 py-custom-10 gap-4 pr-custom-10 w-custom-214 dark:bg-dark-#0B192Dc dark:border-dark-#293242c">
+                            <button id="low"
+                                class="text-xs font-bold leading-custom-18 py-1 px-2 rounded-custom-4 text-text-green bg-#C3FFF1c dark:bg-dark-#233332c dark:text-dark-text-green">
+                                پایین
+                            </button>
+                            <img src="./assets/images/Line.svg" alt="vertical-line" class="dark:border-dark-#293242c">
+                            <button id="mid"
+                                class="text-xs font-bold leading-custom-18 py-1 px-2 rounded-custom-4 text-text-orange bg-#FFEFD6c dark:bg-dark-#302F2Dc">
+                                متوسط
+                            </button>
+                            <img src="./assets/images/Line.svg" alt="vertical-line" class="dark:border-dark-#293242c">
+                            <button id="high"
+                                class="text-xs font-bold leading-custom-18 py-1 px-2 rounded-custom-4 text-#text-red bg-#FFE2DBc dark:bg-dark-#3D2327c">
+                                بالا
+                            </button>
+                        </div>
                 </div>
                 <hr class="border border-#E9E9E9c mt-6 dark:border-dark-#3D3D3Dc">
                 <div class="pb-custom-19 flex flex-row-reverse pt-4 pl-4 items-center">
@@ -291,6 +337,50 @@ const renderTodos = () => {
                 </div>
                 `
                 divEdit.querySelector(".create-task").addEventListener("click", () => createEdit(index));
+                // کپی از شرط اول
+                divEdit.querySelector("#tagsBtn").addEventListener("click",() => {
+                    if (document.querySelector("#first-tag-btn").classList.contains("hidden") && !document.querySelector("#second-tag-btn").classList.contains("hidden")){
+                        document.querySelector("#first-tag-btn").classList.remove("hidden");
+                        document.querySelector("#second-tag-btn").classList.add("hidden");
+                        document.querySelector("#tags").classList.add("hidden");
+                        console.log("add hidden");
+    
+                    }else {
+                        document.querySelector("#first-tag-btn").classList.add("hidden");
+                        document.querySelector("#second-tag-btn").classList.remove("hidden");
+                        document.querySelector("#tags").classList.remove("hidden");
+                    }
+                })
+                divEdit.querySelector("#low").addEventListener("click",() => {
+                    console.log("click got it");
+                    document.querySelector("#first-tag-btn").classList.remove("hidden");
+                    document.querySelector("#second-tag-btn").classList.add("hidden");
+                    document.querySelector("#tags").classList.add("hidden");
+                    todo.tag = "پایین";
+                    document.querySelector(".edit-low").classList.remove("hidden");
+                    document.querySelector(".edit-mid").classList.add("hidden");
+                    document.querySelector(".edit-high").classList.add("hidden");
+                })
+                divEdit.querySelector("#mid").addEventListener("click",() => {
+                    console.log("click got it");
+                    document.querySelector("#first-tag-btn").classList.remove("hidden");
+                    document.querySelector("#second-tag-btn").classList.add("hidden");
+                    document.querySelector("#tags").classList.add("hidden");
+                    todo.tag = "متوسط";
+                    document.querySelector(".edit-low").classList.add("hidden");
+                    document.querySelector(".edit-mid").classList.remove("hidden");
+                    document.querySelector(".edit-high").classList.add("hidden");
+                })
+                divEdit.querySelector("#high").addEventListener("click",() => {
+                    console.log("click got it");
+                    document.querySelector("#first-tag-btn").classList.remove("hidden");
+                    document.querySelector("#second-tag-btn").classList.add("hidden");
+                    document.querySelector("#tags").classList.add("hidden");
+                    todo.tag = "بالا";
+                    document.querySelector(".edit-low").classList.add("hidden");
+                    document.querySelector(".edit-mid").classList.add("hidden");
+                    document.querySelector(".edit-high").classList.remove("hidden");
+                })
             }
             btnadd.classList.remove("hidden");
             unfinishedTasks.appendChild(div);
