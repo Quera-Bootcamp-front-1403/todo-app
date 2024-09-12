@@ -303,7 +303,7 @@ const renderTodos = () => {
                             class="block w-full placeholder-#AFAEB2c font-normal text-xs leading-custom-18 p-1 focus:ring-0 focus:outline-none md:text-sm md:font-semibold dark:text-dark-#83878Fc dark:bg-dark-bg">${todo.discrip}</textarea>
                     </div>
                     <div class="edit-high mt-6 pr-4 ${todo.tag === "بالا" ? "block" : "hidden"}">
-                        <button id="chosenTag"
+                        <button id="chosenTag-high"
                             class="flex items-center gap-2 py-1 px-2 rounded-custom-4 bg-#FFE2DBc dark:bg-dark-#3D2327c">
                         <img id="closeTag" src="./assets/images/close.svg" alt="tag-icon1" width="20px" height="20px"
                             class="dark:hidden">
@@ -313,7 +313,7 @@ const renderTodos = () => {
                         </button>
                     </div>
                     <div class="edit-mid mt-6 pr-4 ${todo.tag === "متوسط" ? "block" : "hidden"}">
-                        <button id="chosenTag"
+                        <button id="chosenTag-mid"
                             class="flex items-center gap-2 py-1 px-2 rounded-custom-4 bg-#FFEFD6c dark:bg-dark-#302F2Dc">
                         <img id="closeTag" src="./assets/images/close.svg" alt="tag-icon1" width="20px" height="20px"
                             class="dark:hidden">
@@ -323,7 +323,7 @@ const renderTodos = () => {
                         </button>
                     </div>
                     <div class="edit-low mt-6 pr-4 ${todo.tag === "پایین" ? "block" : "hidden"}">
-                        <button id="chosenTag"
+                        <button id="chosenTag-low"
                             class="flex items-center gap-2 py-1 px-2 rounded-custom-4 bg-#C3FFF1c dark:bg-dark-#233332c">
                         <img id="closeTag" src="./assets/images/close.svg" alt="tag-icon1" width="20px" height="20px"
                             class="dark:hidden">
@@ -367,10 +367,10 @@ const renderTodos = () => {
                         تسک </button>
                     </div>
                     <div class="pl-custom-6">
-                        <img id="close" src="./assets/images/close-task.svg" alt="close-task"
-                            class="rounded-md  md:hidden dark:hidden">
-                        <img id="close" src="./assets/images/close-circle.svg" alt="close-task"
-                            class="p-custom-6 rounded-md bg-#F5F5F5c hidden dark:inline-block md:dark:hidden dark:bg-dark-#0C1B31c">
+                        <img id="close-light" src="./assets/images/close-task.svg" alt="close-task"
+                            class="rounded-md dark:hidden cursor-pointer">
+                        <img id="close-dark" src="./assets/images/close-circle.svg" alt="close-task"
+                            class="p-custom-6 rounded-md bg-#F5F5F5c hidden dark:inline-block dark:bg-dark-#0C1B31c cursor-pointer">
                     </div>
                 </div>
                 `
@@ -418,6 +418,26 @@ const renderTodos = () => {
                     document.querySelector(".edit-low").classList.add("hidden");
                     document.querySelector(".edit-mid").classList.add("hidden");
                     document.querySelector(".edit-high").classList.remove("hidden");
+                })
+                divEdit.querySelector("#close-light").addEventListener("click",() => {
+                    todo.editTasks = false;
+                    renderTodos();
+                });
+                divEdit.querySelector("#close-dark").addEventListener("click",() => {
+                    todo.editTasks = false;
+                    renderTodos();
+                });
+                divEdit.querySelector("#chosenTag-high").addEventListener("click",() => {
+                    console.log("click");
+                    document.querySelector(".edit-high").classList.add("hidden");
+                })
+                divEdit.querySelector("#chosenTag-mid").addEventListener("click",() => {
+                    console.log("click");
+                    document.querySelector(".edit-mid").classList.add("hidden");
+                })
+                divEdit.querySelector("#chosenTag-low").addEventListener("click",() => {
+                    console.log("click");
+                    document.querySelector(".edit-low").classList.add("hidden");
                 })
             }
             btnAdd.classList.remove("hidden");
