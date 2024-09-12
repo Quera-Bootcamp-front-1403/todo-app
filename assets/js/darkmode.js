@@ -3,6 +3,8 @@ const btnDark = document.getElementById("dark-mode");
 btnDark.addEventListener("click", (e) => {
     e.preventDefault();
     document.documentElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+    saveTodos();
 });
 
 const btnLight = document.getElementById("light-mode");
@@ -10,6 +12,8 @@ const btnLight = document.getElementById("light-mode");
 btnLight.addEventListener("click", (e) => {
     e.preventDefault();
     document.documentElement.classList.remove("dark");
+    localStorage.setItem("theme", "light");
+    saveTodos();
 });
 
 const sidebar = document.getElementById("sidebar");
