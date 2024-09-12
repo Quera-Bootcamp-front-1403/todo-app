@@ -76,6 +76,7 @@ const createEdit = (index) => {
     todos[index].discrip = discrip;
     todos[index].editTasks = false;
     document.querySelector(".for-edit").remove();
+    saveTodos();
     renderTodos();
 }
 
@@ -398,6 +399,7 @@ const renderTodos = () => {
                     document.querySelector(".edit-low").classList.remove("hidden");
                     document.querySelector(".edit-mid").classList.add("hidden");
                     document.querySelector(".edit-high").classList.add("hidden");
+                    saveTodos();
                 })
                 divEdit.querySelector("#mid").addEventListener("click", () => {
                     console.log("click got it");
@@ -408,6 +410,7 @@ const renderTodos = () => {
                     document.querySelector(".edit-low").classList.add("hidden");
                     document.querySelector(".edit-mid").classList.remove("hidden");
                     document.querySelector(".edit-high").classList.add("hidden");
+                    saveTodos();
                 })
                 divEdit.querySelector("#high").addEventListener("click", () => {
                     console.log("click got it");
@@ -418,6 +421,7 @@ const renderTodos = () => {
                     document.querySelector(".edit-low").classList.add("hidden");
                     document.querySelector(".edit-mid").classList.add("hidden");
                     document.querySelector(".edit-high").classList.remove("hidden");
+                    saveTodos();
                 })
                 divEdit.querySelector("#close-light").addEventListener("click",() => {
                     todo.editTasks = false;
