@@ -1,5 +1,6 @@
 let todos = [];
 let completedTodos = [];
+let tempTag = "";
 
 const loadTodos = () => {
     const storedTodos = JSON.parse(localStorage.getItem("todos")) || [];
@@ -53,7 +54,7 @@ const updateTodo = (index) => {
         todos.splice(index, 1);
     }
 
-    closeForm();
+    closeForm(-1, ".for-add");
     saveTodos();
     renderTodos();
 }
@@ -74,6 +75,10 @@ const createEdit = (index) => {
     const discrip = document.getElementById(`taskDescriptions-${index}`).value;
     todos[index].title = title;
     todos[index].discrip = discrip;
+    if (tempTag) {
+        todos[index].tag = tempTag;
+        tempTag = "";
+    }
     todos[index].editTasks = false;
     document.querySelector(".for-edit").remove();
     saveTodos();
@@ -115,7 +120,6 @@ const renderTodos = () => {
         const div = document.createElement("div");
         const divEdit = document.createElement("div");
         divEdit.className = `mt-7 rounded-xl shadow-add-new-task bg-white ${todo.editTasks ? "border -border--secondary-white" : "border-none"} dark:bg-dark-bg dark:border-dark-#3D3D3Dc`;
-        // divEdit.className = "mt-7 flex flex-col rounded-xl shadow-add-new-task mx-4 bg-white md:mx-52 dark:bg-dark-bg dark:border-dark-#3D3D3Dc";
         div.className = "for-add mt-7 flex flex-col border border-dark-#E9E9E9c rounded-xl shadow-add-new-task mx-4 bg-white dark:bg-dark-bg dark:border-dark-#3D3D3Dc";
         btnAdd.classList.add("hidden");
         if (todo.firstCreate) {
@@ -198,7 +202,7 @@ const renderTodos = () => {
                         </div>
                     </div>
             `;
-            div.querySelector("#close").addEventListener("click", () => closeForm(index))
+            div.querySelector("#close").addEventListener("click", () => closeForm(index, ".for-add"))
             div.querySelector(`#taskName-${index}`).addEventListener("keyup", enableSaveBtn)
             div.querySelector(".addTask").addEventListener("click", () => updateTodo(index));
             div.querySelector("#tagsBtn").addEventListener("click", () => {
@@ -395,7 +399,7 @@ const renderTodos = () => {
                     document.querySelector("#first-tag-btn").classList.remove("hidden");
                     document.querySelector("#second-tag-btn").classList.add("hidden");
                     document.querySelector("#tags").classList.add("hidden");
-                    todo.tag = "پایین";
+                    tempTag = "پایین";
                     document.querySelector(".edit-low").classList.remove("hidden");
                     document.querySelector(".edit-mid").classList.add("hidden");
                     document.querySelector(".edit-high").classList.add("hidden");
@@ -406,7 +410,7 @@ const renderTodos = () => {
                     document.querySelector("#first-tag-btn").classList.remove("hidden");
                     document.querySelector("#second-tag-btn").classList.add("hidden");
                     document.querySelector("#tags").classList.add("hidden");
-                    todo.tag = "متوسط";
+                    tempTag = "متوسط";
                     document.querySelector(".edit-low").classList.add("hidden");
                     document.querySelector(".edit-mid").classList.remove("hidden");
                     document.querySelector(".edit-high").classList.add("hidden");
@@ -417,29 +421,27 @@ const renderTodos = () => {
                     document.querySelector("#first-tag-btn").classList.remove("hidden");
                     document.querySelector("#second-tag-btn").classList.add("hidden");
                     document.querySelector("#tags").classList.add("hidden");
-                    todo.tag = "بالا";
+                    tempTag = "بالا";
                     document.querySelector(".edit-low").classList.add("hidden");
                     document.querySelector(".edit-mid").classList.add("hidden");
                     document.querySelector(".edit-high").classList.remove("hidden");
                     saveTodos();
                 })
-                divEdit.querySelector("#close-light").addEventListener("click",() => {
-                    todo.editTasks = false;
-                    renderTodos();
+                divEdit.querySelector("#close-light").addEventListener("click", () => {
+                    closeForm(index, ".for-edit");
                 });
-                divEdit.querySelector("#close-dark").addEventListener("click",() => {
-                    todo.editTasks = false;
-                    renderTodos();
+                divEdit.querySelector("#close-dark").addEventListener("click", () => {
+                    closeForm(index, ".for-edit");
                 });
-                divEdit.querySelector("#chosenTag-high").addEventListener("click",() => {
+                divEdit.querySelector("#chosenTag-high").addEventListener("click", () => {
                     console.log("click");
                     document.querySelector(".edit-high").classList.add("hidden");
                 })
-                divEdit.querySelector("#chosenTag-mid").addEventListener("click",() => {
+                divEdit.querySelector("#chosenTag-mid").addEventListener("click", () => {
                     console.log("click");
                     document.querySelector(".edit-mid").classList.add("hidden");
                 })
-                divEdit.querySelector("#chosenTag-low").addEventListener("click",() => {
+                divEdit.querySelector("#chosenTag-low").addEventListener("click", () => {
                     console.log("click");
                     document.querySelector(".edit-low").classList.add("hidden");
                 })
@@ -510,16 +512,19 @@ function enableSaveBtn() {
         document.querySelector('.addTask').classList.add("opacity-50")
     }
 }
-function closeForm(index = -1) {
+function closeForm(index = -1, formClass) {
     if (index > -1) {
         if (todos[index].title === "") {
+            console.log(515)
             todos.splice(index, 1);
         }
         else {
+            console.log(519);
             todos[index].editTasks = false;
         }
     }
-    document.querySelector(".for-add").remove()
+    document.querySelector(formClass).remove()
+    saveTodos();
     renderTodos();
 }
 const toggleTaskCompletion = (index, finishedInput) => {
