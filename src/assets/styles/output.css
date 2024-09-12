@@ -779,6 +779,14 @@ video {
   margin-top: 150px;
 }
 
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
 .block {
   display: block;
 }
@@ -1289,6 +1297,10 @@ video {
   padding-top: 6px;
 }
 
+.pt-0 {
+  padding-top: 0px;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1718,11 +1730,6 @@ video {
 
   .md\:left-5 {
     left: 1.25rem;
-  }
-
-  .md\:mx-52 {
-    margin-left: 13rem;
-    margin-right: 13rem;
   }
 
   .md\:mb-5 {

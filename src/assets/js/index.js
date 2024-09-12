@@ -119,8 +119,8 @@ const renderTodos = () => {
     todos.forEach((todo, index) => {
         const div = document.createElement("div");
         const divEdit = document.createElement("div");
-        divEdit.className = `mt-7 rounded-xl shadow-add-new-task bg-white ${todo.editTasks ? "border -border--secondary-white" : "border-none"} dark:bg-dark-bg dark:border-dark-#3D3D3Dc`;
-        div.className = "for-add mt-7 flex flex-col border border-dark-#E9E9E9c rounded-xl shadow-add-new-task mx-4 bg-white dark:bg-dark-bg dark:border-dark-#3D3D3Dc";
+        divEdit.className = `mt-2 rounded-xl shadow-add-new-task bg-white ${todo.editTasks ? "border -border--secondary-white" : "border-none"} dark:bg-dark-bg dark:border-dark-#3D3D3Dc`;
+        div.className = "for-add mt-2 flex flex-col border border-dark-#E9E9E9c rounded-xl shadow-add-new-task mx-4 bg-white dark:bg-dark-bg dark:border-dark-#3D3D3Dc";
         btnAdd.classList.add("hidden");
         if (todo.firstCreate) {
             div.innerHTML = `
@@ -258,7 +258,7 @@ const renderTodos = () => {
             })
             unfinishedTasks.insertAdjacentElement("beforebegin", div);
         } else {
-            div.className = "flex justify-between bg-white shadow-lg overflow-hidden mb-4 relative border rounded-xl dark:bg-dark-#091120c dark:border-0 min-h-20";
+            div.className = "flex justify-between bg-white shadow-lg overflow-hidden relative border rounded-xl dark:bg-dark-#091120c dark:border-0 min-h-20";
             div.innerHTML = "";
             div.innerHTML = `
                         <div class="flex items-center">
